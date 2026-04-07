@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drivio — Automatic Trip Tracking for iOS</title>
+<meta name="description" content="Drivio automatically detects and records your driving trips. Smart mileage tracking, driving analytics, and trip sharing — all hands-free.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0B1A2E;
+  --bg-card: #112240;
+  --bg-card-hover: #1a3358;
+  --accent: #F0833D;
+  --accent-glow: rgba(240, 131, 61, 0.15);
+  --success: #10B981;
+  --text: #E2E8F0;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --border: rgba(255, 255, 255, 0.06);
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Background ambient glow */
+body::before {
+  content: '';
+  position: fixed;
+  top: -40%; left: -20%;
+  width: 80%; height: 80%;
+  background: radial-gradient(ellipse, rgba(240, 131, 61, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+body::after {
+  content: '';
+  position: fixed;
+  bottom: -30%; right: -20%;
+  width: 70%; height: 70%;
+  background: radial-gradient(ellipse, rgba(16, 185, 129, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Nav ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  background: rgba(11, 26, 46, 0.8);
+  border-bottom: 1px solid var(--border);
+}
+nav .container {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.nav-logo img {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.nav-logo-text {
+  font-size: 20px; font-weight: 800; letter-spacing: -0.3px;
+  font-family: 'Inter', sans-serif;
+}
+.nav-logo-text .w { color: #fff; }
+.nav-logo-text .o { color: #F0833D; }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  color: var(--text-secondary); text-decoration: none;
+  font-size: 14px; font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  background: var(--accent) !important; color: #fff !important;
+  padding: 8px 20px; border-radius: 8px;
+  font-weight: 600 !important;
+  transition: transform 0.2s, box-shadow 0.2s !important;
+}
+.nav-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(240, 131, 61, 0.4);
+}
+
+/* ─── Hero ─── */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 120px 24px 80px;
+}
+.hero-content { max-width: 720px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent-glow);
+  border: 1px solid rgba(240, 131, 61, 0.2);
+  padding: 6px 16px; border-radius: 100px;
+  font-size: 13px; font-weight: 600; color: var(--accent);
+  margin-bottom: 32px;
+}
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.5); }
+}
+h1 {
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+h1 .gradient {
+  background: linear-gradient(135deg, #E46F2D, #F0833D, #FBB040);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: 18px; color: var(--text-secondary);
+  max-width: 520px; margin: 0 auto 40px;
+  line-height: 1.7;
+}
+.hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 28px; border-radius: 12px;
+  font-size: 15px; font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer; border: none;
+}
+.btn-primary {
+  background: var(--accent); color: #fff;
+  box-shadow: 0 4px 24px rgba(240, 131, 61, 0.3);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(240, 131, 61, 0.45);
+}
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.06); color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+.btn svg { width: 20px; height: 20px; }
+
+/* ─── Section ─── */
+section { padding: 100px 0; }
+.section-label {
+  font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2px;
+  color: var(--accent); margin-bottom: 16px;
+}
+.section-title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800; letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+.section-desc {
+  font-size: 16px; color: var(--text-secondary);
+  max-width: 560px; line-height: 1.7;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.section-header .section-desc { margin: 0 auto; }
+
+/* ─── Features grid ─── */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.feature-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  transition: all 0.3s;
+}
+.feature-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(240, 131, 61, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+}
+.feature-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+.feature-icon.blue { background: rgba(59, 130, 246, 0.12); }
+.feature-icon.green { background: rgba(16, 185, 129, 0.12); }
+.feature-icon.purple { background: rgba(129, 140, 248, 0.12); }
+.feature-icon.orange { background: rgba(251, 146, 60, 0.12); }
+.feature-icon.pink { background: rgba(236, 72, 153, 0.12); }
+.feature-icon.cyan { background: rgba(34, 211, 238, 0.12); }
+.feature-card h3 {
+  font-size: 17px; font-weight: 700;
+  margin-bottom: 10px; letter-spacing: -0.3px;
+}
+.feature-card p {
+  font-size: 14px; color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ─── How it works ─── */
+.steps {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 40px; counter-reset: step;
+}
+.step { position: relative; text-align: center; }
+.step::before {
+  counter-increment: step;
+  content: counter(step);
+  display: flex; align-items: center; justify-content: center;
+  width: 56px; height: 56px;
+  background: linear-gradient(135deg, #E46F2D, #F0833D);
+  border-radius: 16px;
+  font-size: 22px; font-weight: 800;
+  margin: 0 auto 20px;
+  box-shadow: 0 8px 24px rgba(240, 131, 61, 0.25);
+}
+.step h3 {
+  font-size: 18px; font-weight: 700;
+  margin-bottom: 8px; letter-spacing: -0.3px;
+}
+.step p {
+  font-size: 14px; color: var(--text-secondary);
+  line-height: 1.6; max-width: 280px; margin: 0 auto;
+}
+
+/* ─── Pricing ─── */
+.pricing-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px; align-items: start;
+}
+.pricing-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  position: relative;
+  transition: all 0.3s;
+}
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+}
+.pricing-card.featured {
+  border-color: var(--accent);
+  box-shadow: 0 0 40px var(--accent-glow);
+}
+.pricing-badge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: linear-gradient(135deg, #E46F2D, #F0833D);
+  padding: 4px 16px; border-radius: 100px;
+  font-size: 12px; font-weight: 700;
+  white-space: nowrap;
+}
+.pricing-card .plan-name {
+  font-size: 14px; font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase; letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.pricing-card .price {
+  font-size: 40px; font-weight: 800;
+  letter-spacing: -1px; margin-bottom: 4px;
+}
+.pricing-card .price span {
+  font-size: 16px; font-weight: 500;
+  color: var(--text-secondary);
+}
+.pricing-card .yearly {
+  font-size: 13px; color: var(--text-muted);
+  margin-bottom: 24px;
+}
+.pricing-card ul {
+  list-style: none; margin-bottom: 28px;
+}
+.pricing-card li {
+  font-size: 14px; color: var(--text-secondary);
+  padding: 8px 0;
+  display: flex; align-items: start; gap: 10px;
+}
+.pricing-card li::before {
+  content: '✓';
+  color: var(--success); font-weight: 700;
+  flex-shrink: 0;
+}
+.pricing-card .btn { width: 100%; justify-content: center; }
+
+/* ─── CTA ─── */
+.cta-section {
+  text-align: center;
+  padding: 80px 0 120px;
+}
+.cta-card {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.08));
+  border: 1px solid rgba(240, 131, 61, 0.15);
+  border-radius: 24px;
+  padding: 64px 40px;
+}
+.cta-card h2 {
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 800; letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+.cta-card p {
+  font-size: 16px; color: var(--text-secondary);
+  max-width: 480px; margin: 0 auto 32px;
+  line-height: 1.7;
+}
+
+/* ─── Footer ─── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 0;
+}
+footer .container {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+}
+footer p {
+  font-size: 13px; color: var(--text-muted);
+}
+.footer-links { display: flex; gap: 24px; }
+.footer-links a {
+  font-size: 13px; color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--text-secondary); }
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .nav-links a:not(.nav-cta) { display: none; }
+  .features-grid, .steps, .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px; margin: 0 auto;
+  }
+  .hero { min-height: auto; padding: 140px 24px 60px; }
+  .hero-actions { flex-direction: column; align-items: center; }
+  .btn { width: 100%; justify-content: center; }
+  section { padding: 60px 0; }
+  .cta-card { padding: 40px 24px; }
+  footer .container { flex-direction: column; text-align: center; }
+}
+
+/* ─── Scroll animations ─── */
+.fade-up {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+.fade-up.visible {
+  opacity: 1; transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <div class="container">
+    <a href="#" class="nav-logo">
+      <img src="logo.jpg" alt="Drivio logo">
+      <span class="nav-logo-text"><span class="w">Driv</span><span class="o">io</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#how">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#download" class="nav-cta">Download</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Now in Beta</div>
+    <h1>Every drive,<br><span class="gradient">automatically tracked.</span></h1>
+    <p class="hero-sub">Drivio detects when you start driving and records your trip hands-free. Smart mileage tracking, driving analytics, and route matching — built for iOS.</p>
+    <div class="hero-actions">
+      <a href="#download" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Download for iOS
+      </a>
+      <a href="#features" class="btn btn-secondary">See Features</a>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section id="features">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Features</div>
+      <h2 class="section-title">Everything happens automatically</h2>
+      <p class="section-desc">No buttons to press. No apps to open. Drivio works silently in the background and captures every mile.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-icon blue">&#128663;</div>
+        <h3>Auto Trip Detection</h3>
+        <p>Detects driving automatically using GPS, motion sensors, and accelerometer. No manual start or stop needed.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon green">&#128506;</div>
+        <h3>Live Route Map</h3>
+        <p>Watch your route draw in real-time on a full-screen map with smooth animations and adaptive camera tracking.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon purple">&#128268;</div>
+        <h3>Road-Matched Routes</h3>
+        <p>Snap raw GPS traces to actual roads using Mapbox map matching. Clean, accurate routes every time.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon orange">&#128202;</div>
+        <h3>Driving Analytics</h3>
+        <p>Driving score, monthly mileage trends, hour distribution, and personal records. Understand your habits.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon pink">&#128663;</div>
+        <h3>Multi-Vehicle</h3>
+        <p>Manage multiple vehicles with brand, model, and year. Auto-assign trips to your default car.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon cyan">&#128241;</div>
+        <h3>iOS Widget</h3>
+        <p>See your current trip or last drive right on your home screen. Real-time timer and distance updates.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section id="how" style="background: rgba(255,255,255,0.01);">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">Three steps. Zero effort.</h2>
+    </div>
+    <div class="steps">
+      <div class="step fade-up">
+        <h3>Install & Allow</h3>
+        <p>Grant location and motion permissions. Drivio needs these to detect driving automatically.</p>
+      </div>
+      <div class="step fade-up">
+        <h3>Just Drive</h3>
+        <p>Put your phone in your pocket. Drivio detects vehicle motion, starts recording, and stops when you park.</p>
+      </div>
+      <div class="step fade-up">
+        <h3>Review & Export</h3>
+        <p>Confirm trips, tag categories, export mileage reports. Everything is organized and ready for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section id="pricing">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">Start free. Upgrade when you need more.</h2>
+      <p class="section-desc">Core trip tracking is completely free. Unlock advanced features with Pro or Max.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card fade-up">
+        <div class="plan-name">Free</div>
+        <div class="price">$0</div>
+        <div class="yearly">Free forever</div>
+        <ul>
+          <li>Auto trip detection</li>
+          <li>Live route map</li>
+          <li>Trip review & confirm</li>
+          <li>Dashboard with stats</li>
+          <li>Last 30 days history</li>
+          <li>2 saved places</li>
+        </ul>
+        <a href="#download" class="btn btn-secondary">Get Started</a>
+      </div>
+      <div class="pricing-card featured fade-up">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="plan-name">Pro</div>
+        <div class="price">$2.99<span>/mo</span></div>
+        <div class="yearly">$19.99/yr &mdash; save 44%</div>
+        <ul>
+          <li>Everything in Free</li>
+          <li>Unlimited history</li>
+          <li>Unlimited saved places</li>
+          <li>Road-matched routes</li>
+          <li>Trip categories & auto-classify</li>
+          <li>Mileage reports (CSV/PDF)</li>
+          <li>iCloud backup & sync</li>
+        </ul>
+        <a href="#download" class="btn btn-primary">Start Pro</a>
+      </div>
+      <div class="pricing-card fade-up">
+        <div class="plan-name">Max</div>
+        <div class="price">$4.99<span>/mo</span></div>
+        <div class="yearly">$34.99/yr &mdash; save 42%</div>
+        <ul>
+          <li>Everything in Pro</li>
+          <li>Driving analytics & score</li>
+          <li>Multiple vehicles</li>
+          <li>iOS home screen widget</li>
+          <li>Trip sharing</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="#download" class="btn btn-secondary">Start Max</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="download" class="cta-section">
+  <div class="container">
+    <div class="cta-card fade-up">
+      <h2>Ready to track smarter?</h2>
+      <p>Download Drivio and let your phone do the work. Every trip, every mile, automatically.</p>
+      <a href="https://apps.apple.com/app/drivio" class="btn btn-primary" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Download on the App Store
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>&copy; 2026 Drivio. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="mailto:support@drivio.to">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll-triggered fade-up animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>

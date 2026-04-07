@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Drivio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #0B1A2E; --bg-card: #112240; --accent: #F0833D;
+  --text: #E2E8F0; --text-secondary: #94A3B8; --text-muted: #64748B;
+  --border: rgba(255,255,255,0.06);
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg); color: var(--text);
+  line-height: 1.7; -webkit-font-smoothing: antialiased;
+}
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  background: rgba(11,26,46,0.8);
+  border-bottom: 1px solid var(--border);
+}
+nav .container {
+  max-width: 1120px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; height: 64px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.nav-logo img { width: 32px; height: 32px; border-radius: 8px; object-fit: cover; }
+.nav-logo-text { font-size: 20px; font-weight: 800; letter-spacing: -0.3px; }
+.nav-logo-text .w { color: #fff; }
+.nav-logo-text .o { color: #F0833D; }
+.content {
+  max-width: 720px; margin: 0 auto;
+  padding: 120px 24px 80px;
+}
+h1 {
+  font-size: 36px; font-weight: 800; letter-spacing: -1px;
+  margin-bottom: 8px;
+}
+.subtitle {
+  font-size: 14px; color: var(--text-muted); margin-bottom: 48px;
+}
+h2 {
+  font-size: 20px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 40px 0 12px; color: var(--text);
+}
+p, li {
+  font-size: 15px; color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+ul { padding-left: 20px; margin-bottom: 16px; }
+li { margin-bottom: 6px; }
+strong { color: var(--text); font-weight: 600; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 24px;
+}
+.footer-inner {
+  max-width: 720px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+}
+footer p { font-size: 13px; color: var(--text-muted); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a {
+  font-size: 13px; color: var(--text-muted);
+  text-decoration: none; transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--text-secondary); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.jpg" alt="Drivio logo">
+      <span class="nav-logo-text"><span class="w">Driv</span><span class="o">io</span></span>
+    </a>
+  </div>
+</nav>
+
+<div class="content">
+  <h1>Privacy Policy</h1>
+  <p class="subtitle">Effective date: April 6, 2026</p>
+
+  <p>Drivio ("we", "our", "the app") is committed to protecting your privacy. This policy explains what data we collect, how we use it, and your rights.</p>
+
+  <h2>1. Data We Collect</h2>
+  <p><strong>Location data.</strong> Drivio uses GPS to detect driving and record trip routes. Location is collected in the foreground and background while the app is active.</p>
+  <p><strong>Motion data.</strong> We use the accelerometer and motion activity (walking, driving, stationary) to detect trip starts and stops. This data is processed on-device and not transmitted.</p>
+  <p><strong>Trip data.</strong> Start/end times, distances, routes, categories, and vehicle assignments are stored locally on your device.</p>
+  <p><strong>Subscription data.</strong> If you subscribe, Apple handles payment processing. We receive only your subscription status, not payment details.</p>
+
+  <h2>2. Data We Do NOT Collect</h2>
+  <ul>
+    <li>We do not collect your name, email, phone number, or account credentials.</li>
+    <li>We do not use analytics SDKs, ad trackers, or third-party data brokers.</li>
+    <li>We do not sell, share, or monetize your data in any way.</li>
+  </ul>
+
+  <h2>3. Where Data Is Stored</h2>
+  <p><strong>Local-first.</strong> All trip data is stored on your device in a local database. Nothing is uploaded to our servers by default.</p>
+  <p><strong>iCloud backup (optional).</strong> If you enable iCloud backup (Pro plan), your data is stored in your personal iCloud Drive account. We cannot access your iCloud data.</p>
+  <p><strong>Map matching.</strong> If you use road-matched routes (Pro plan), GPS coordinates are sent to the Mapbox API for processing. Mapbox's privacy policy applies to this data. No personal identifiers are included in these requests.</p>
+
+  <h2>4. Location Permission</h2>
+  <p>Drivio requires "Always Allow" location permission to detect trips automatically in the background. You can change this at any time in iOS Settings. If you revoke location access, trip detection will stop but your existing data remains on your device.</p>
+  <p>The blue location indicator appears when Drivio is actively using GPS.</p>
+
+  <h2>5. Data Retention</h2>
+  <p>Your trip data remains on your device until you delete it. You can delete individual trips or all data at any time from within the app. Uninstalling the app removes all local data.</p>
+
+  <h2>6. Children's Privacy</h2>
+  <p>Drivio is not directed at children under 13. We do not knowingly collect data from children.</p>
+
+  <h2>7. Changes to This Policy</h2>
+  <p>We may update this policy from time to time. Changes will be posted on this page with an updated effective date.</p>
+
+  <h2>8. Contact</h2>
+  <p>If you have questions about this privacy policy, contact us at <a href="mailto:support@drivio.to">support@drivio.to</a>.</p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <p>&copy; 2026 Drivio. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="mailto:support@drivio.to">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
