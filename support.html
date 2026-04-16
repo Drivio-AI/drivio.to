@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support — Drivio</title>
+<meta name="description" content="Get help with Drivio — the road trip journal for iOS. Contact support, browse FAQs, and learn how to use trip detection, journeys, and posters.">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #0B1A2E; --bg-card: #112240; --accent: #F0833D;
+  --text: #E2E8F0; --text-secondary: #94A3B8; --text-muted: #64748B;
+  --border: rgba(255,255,255,0.06);
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg); color: var(--text);
+  line-height: 1.7; -webkit-font-smoothing: antialiased;
+}
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  background: rgba(11,26,46,0.8);
+  border-bottom: 1px solid var(--border);
+}
+nav .container {
+  max-width: 1120px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; height: 64px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.nav-logo img { width: 32px; height: 32px; border-radius: 8px; object-fit: cover; }
+.nav-logo-text { font-size: 20px; font-weight: 800; letter-spacing: -0.3px; }
+.nav-logo-text .w { color: #fff; }
+.nav-logo-text .o { color: #F0833D; }
+.content {
+  max-width: 720px; margin: 0 auto;
+  padding: 120px 24px 80px;
+}
+h1 {
+  font-size: 36px; font-weight: 800; letter-spacing: -1px;
+  margin-bottom: 8px;
+}
+.subtitle {
+  font-size: 14px; color: var(--text-muted); margin-bottom: 48px;
+}
+h2 {
+  font-size: 20px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 40px 0 12px; color: var(--text);
+}
+h3 {
+  font-size: 16px; font-weight: 600;
+  margin: 20px 0 6px; color: var(--text);
+}
+p, li {
+  font-size: 15px; color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+ul { padding-left: 20px; margin-bottom: 16px; }
+li { margin-bottom: 6px; }
+strong { color: var(--text); font-weight: 600; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.contact-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin: 24px 0 8px;
+}
+.contact-card .label {
+  font-size: 12px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1.2px;
+  color: var(--accent); margin-bottom: 6px;
+}
+.contact-card .value {
+  font-size: 18px; font-weight: 600; color: var(--text);
+  margin-bottom: 4px;
+}
+.contact-card .value a { color: var(--text); }
+.contact-card .meta {
+  font-size: 13px; color: var(--text-muted); margin-bottom: 0;
+}
+footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 24px;
+}
+.footer-inner {
+  max-width: 720px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+}
+footer p { font-size: 13px; color: var(--text-muted); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a {
+  font-size: 13px; color: var(--text-muted);
+  text-decoration: none; transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--text-secondary); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.png" alt="Drivio logo">
+      <span class="nav-logo-text"><span class="w">Driv</span><span class="o">io</span></span>
+    </a>
+  </div>
+</nav>
+
+<div class="content">
+  <h1>Support</h1>
+  <p class="subtitle">We're a small team and we read every message.</p>
+
+  <p>Need help with Drivio? Have a feature request, a bug report, or a billing question? Get in touch — we typically respond within one business day.</p>
+
+  <div class="contact-card">
+    <div class="label">Email Support</div>
+    <div class="value"><a href="mailto:support@drivio.to">support@drivio.to</a></div>
+    <p class="meta">Response time: within 1 business day (Mon–Fri, Pacific Time).</p>
+  </div>
+
+  <h2>Before You Email</h2>
+  <p>To help us resolve your issue faster, please include:</p>
+  <ul>
+    <li>Your iOS version (Settings &rarr; General &rarr; About)</li>
+    <li>Your iPhone model</li>
+    <li>The Drivio version (shown at the bottom of the in-app Settings screen)</li>
+    <li>A short description of what happened and what you expected</li>
+    <li>Screenshots or a screen recording, if relevant</li>
+  </ul>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <h3>Drivio isn't recording my drives. What's wrong?</h3>
+  <p>Drivio needs <strong>"Always Allow"</strong> location permission and <strong>Motion &amp; Fitness</strong> access to detect trips in the background. Open iOS Settings &rarr; Drivio and confirm both are enabled. If location is set to "While Using the App," background trip detection will not work.</p>
+
+  <h3>How do I create a Journey?</h3>
+  <p>Open the Trips tab, tap <strong>Select</strong>, choose the drives you want to group together, then tap <strong>Create Journey</strong>. You can name the journey, add memory pins, and attach photos at any time.</p>
+
+  <h3>Why are some of my photos missing from a Journey?</h3>
+  <p>Drivio matches photos to journeys based on timestamps and location metadata in your Photos library. Photos without location data, or taken outside the trip's time window, won't be matched automatically. You can add them manually from the Journey edit screen.</p>
+
+  <h3>How do I cancel my Pro subscription?</h3>
+  <p>Subscriptions are managed by Apple, not by Drivio. To cancel: open the Settings app &rarr; tap your name at the top &rarr; <strong>Subscriptions</strong> &rarr; select Drivio &rarr; <strong>Cancel Subscription</strong>. Your Pro features remain active until the end of the current billing period.</p>
+
+  <h3>Can I get a refund?</h3>
+  <p>Refunds for App Store purchases are handled by Apple. Visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>, sign in with your Apple ID, and request a refund for your Drivio purchase.</p>
+
+  <h3>How do I export or back up my trips?</h3>
+  <p>Pro subscribers can enable iCloud sync from in-app Settings &rarr; <strong>iCloud Backup</strong>. Your trip data is stored in your personal iCloud account. Individual journeys can be exported as posters from the Journey detail screen.</p>
+
+  <h3>Will Drivio drain my battery?</h3>
+  <p>Drivio uses iOS's significant-location and motion APIs, which are highly battery-efficient. Typical impact is under 3% per day. The app does not run continuously in the background — iOS wakes it only when motion suggests a drive may be starting.</p>
+
+  <h3>Does Drivio work without an internet connection?</h3>
+  <p>Yes. Trip detection and recording work fully offline. Internet is only required for road-matched routes (Pro), iCloud sync (Pro), and Live Share (Pro).</p>
+
+  <h2>Privacy &amp; Data</h2>
+  <p>Drivio stores all your trip data on your device. We do not collect personal information, use analytics SDKs, or share your data. See our <a href="privacy.html">Privacy Policy</a> for full details.</p>
+
+  <h2>Bug Reports &amp; Feature Requests</h2>
+  <p>We're actively building Drivio and your feedback shapes what we ship next. Email <a href="mailto:support@drivio.to">support@drivio.to</a> with your idea or issue — we read everything.</p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <p>&copy; 2026 Drivio. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="mailto:support@drivio.to">Contact</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
