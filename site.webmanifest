@@ -1,0 +1,25 @@
+{
+  "name": "Drivio",
+  "short_name": "Drivio",
+  "description": "Drivio is an iOS trip tracker that automatically records every drive — your daily commute, weekend errands, and road trips. Curate them into Journeys with photos, memory pins, and shareable posters.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "minimal-ui",
+  "orientation": "portrait",
+  "theme_color": "#0F2C3E",
+  "background_color": "#0F2C3E",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
