@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From GPS Trace to Shareable Road Trip Poster in 60 Seconds — Drivio Blog</title>
+<meta name="description" content="A raw GPS trace is a wiggly line on a map. Here's how to turn one into a vertical road trip poster your friends actually want to share.">
+<link rel="canonical" href="https://drivio.to/blog/gps-to-road-trip-poster/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Drivio">
+<meta property="og:url" content="https://drivio.to/blog/gps-to-road-trip-poster/">
+<meta property="og:title" content="From GPS Trace to Shareable Road Trip Poster in 60 Seconds">
+<meta property="og:description" content="A raw GPS trace is a wiggly line on a map. Here's how to turn one into a vertical road trip poster your friends actually want to share.">
+<meta property="og:image" content="https://drivio.to/icon-512.png">
+<meta property="article:published_time" content="2026-04-17">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="From GPS Trace to Shareable Road Trip Poster in 60 Seconds">
+<meta name="twitter:description" content="How to turn a raw GPS trace into a vertical road trip poster your friends actually want to share.">
+<meta name="twitter:image" content="https://drivio.to/icon-512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "From GPS Trace to Shareable Road Trip Poster in 60 Seconds",
+  "description": "How to turn a raw GPS trace into a vertical road trip poster your friends actually want to share.",
+  "image": "https://drivio.to/icon-512.png",
+  "datePublished": "2026-04-17",
+  "author": { "@type": "Organization", "name": "Drivio" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Drivio",
+    "logo": { "@type": "ImageObject", "url": "https://drivio.to/icon-512.png" }
+  },
+  "mainEntityOfPage": "https://drivio.to/blog/gps-to-road-trip-poster/"
+}
+</script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #0B1A2E; --bg-card: #112240; --accent: #F0833D;
+  --text: #E2E8F0; --text-secondary: #94A3B8; --text-muted: #64748B;
+  --border: rgba(255,255,255,0.06);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); background: rgba(11,26,46,0.8); border-bottom: 1px solid var(--border); }
+nav .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; height: 64px; }
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo img { width: 32px; height: 32px; border-radius: 8px; object-fit: cover; }
+.nav-logo-text { font-size: 20px; font-weight: 800; letter-spacing: -0.3px; }
+.nav-logo-text .w { color: #fff; }
+.nav-logo-text .o { color: #F0833D; }
+article { max-width: 680px; margin: 0 auto; padding: 120px 24px 60px; }
+.back-link { display: inline-block; font-size: 13px; font-weight: 600; color: var(--text-muted); text-decoration: none; margin-bottom: 32px; letter-spacing: 0.3px; transition: color 0.2s; }
+.back-link:hover { color: var(--accent); }
+.article-meta { display: flex; gap: 12px; flex-wrap: wrap; font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin-bottom: 16px; }
+.article-meta .category { color: var(--accent); }
+h1 { font-size: 40px; font-weight: 800; letter-spacing: -1.2px; margin-bottom: 20px; line-height: 1.15; }
+.lede { font-size: 19px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+article h2 { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; margin: 48px 0 16px; color: var(--text); line-height: 1.3; }
+article h3 { font-size: 19px; font-weight: 700; margin: 32px 0 12px; color: var(--text); }
+article p, article li { font-size: 16px; color: var(--text-secondary); margin-bottom: 16px; }
+article ul, article ol { padding-left: 22px; margin-bottom: 20px; }
+article li { margin-bottom: 8px; }
+article strong { color: var(--text); font-weight: 600; }
+article em { color: var(--text); font-style: italic; }
+article a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(240,131,61,0.3); }
+article a:hover { border-bottom-color: var(--accent); }
+article blockquote { border-left: 3px solid var(--accent); padding: 8px 20px; margin: 24px 0; background: rgba(240,131,61,0.04); color: var(--text); font-size: 17px; font-style: italic; }
+article code { background: var(--bg-card); color: var(--accent); padding: 2px 6px; border-radius: 4px; font-size: 0.92em; font-family: 'SF Mono', Menlo, monospace; }
+.cta-box { margin-top: 64px; padding: 32px; background: linear-gradient(135deg, rgba(240,131,61,0.12), rgba(240,131,61,0.04)); border: 1px solid rgba(240,131,61,0.2); border-radius: 16px; }
+.cta-box h3 { font-size: 20px; font-weight: 700; margin: 0 0 8px; color: var(--text); letter-spacing: -0.3px; }
+.cta-box p { font-size: 15px; margin-bottom: 16px; }
+.cta-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #fff !important; padding: 10px 20px; border-radius: 10px; font-size: 14px; font-weight: 600; text-decoration: none !important; border: none !important; }
+.cta-btn:hover { transform: translateY(-1px); }
+footer { border-top: 1px solid var(--border); padding: 40px 24px; margin-top: 40px; }
+.footer-inner { max-width: 680px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+footer p { font-size: 13px; color: var(--text-muted); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--text-secondary); }
+@media (max-width: 640px) { h1 { font-size: 30px; } .lede { font-size: 17px; } article { padding: 100px 20px 40px; } article h2 { font-size: 22px; } .cta-box { padding: 24px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="../../" class="nav-logo">
+      <img src="../../logo.png" alt="Drivio logo">
+      <span class="nav-logo-text"><span class="w">Driv</span><span class="o">io</span></span>
+    </a>
+  </div>
+</nav>
+
+<article>
+  <a href="../" class="back-link">← All posts</a>
+
+  <div class="article-meta">
+    <span class="category">Road trip</span>
+    <span>April 17, 2026</span>
+    <span>3 min read</span>
+  </div>
+
+  <h1>From GPS Trace to Shareable Road Trip Poster in 60 Seconds</h1>
+
+  <p class="lede">A raw GPS trace is just a squiggle. Here's what separates a squiggle from a poster you actually want to frame, print, or share — and how to make one fast.</p>
+
+  <h2>Why a Bare GPS Trace Falls Flat</h2>
+
+  <p>Open any standard trip tracker and the "share" feature produces some variant of this: a flat map, a line, maybe a distance number. That's fine as data. It's not a memory.</p>
+
+  <p>A road trip worth sharing has four ingredients, and most apps capture only one:</p>
+
+  <ol>
+    <li><strong>The shape of the journey.</strong> The route, yes — but framed and styled well enough to feel intentional.</li>
+    <li><strong>The numbers that meant something.</strong> Total distance, time on the road, number of stops, days.</li>
+    <li><strong>The pictures you actually took.</strong> The coffee shop where you fell in love with Oregon. The beach at golden hour. The dog in the passenger seat.</li>
+    <li><strong>A name.</strong> "Trip 4/12–4/14" is a file. "Big Sur Weekend" is a memory.</li>
+  </ol>
+
+  <p>A poster is just those four ingredients, composed well, in a vertical format that looks good in a text message or an Instagram Story.</p>
+
+  <h2>The 60-Second Version in Drivio</h2>
+
+  <p>Here's the flow once you have a few drives worth sharing:</p>
+
+  <h3>Step 1 — Build the Journey</h3>
+  <p>Drivio has been recording your drives automatically. Open the Trips tab, tap Select, pick the drives that belong to the same trip (two-day road trip? pick both days), and tap Create Journey. Give it a real name.</p>
+
+  <p>Naming is underrated. "Tahoe with Sarah" will mean something a decade from now. "Drive 4/14" will not.</p>
+
+  <h3>Step 2 — Let the Photos Match Themselves</h3>
+  <p>If your iPhone's Photos library has location metadata turned on (it does by default), Drivio will automatically pull photos you took during the journey and attach them. This is the single most satisfying part of the process — you don't pick photos, they just show up in the right order, along the route.</p>
+
+  <p>Photos without location data — screenshots, pictures sent to you, images stripped of metadata — won't match automatically. You can add those manually from the Journey edit screen.</p>
+
+  <h3>Step 3 — Drop Memory Pins for the Good Parts</h3>
+  <p>Tap anywhere on the route and drop a pin with a note: <em>Best coffee stop. Saw the whales here. Flat tire — no photos.</em> Pins are what turn a route into a story. Spend thirty seconds on this; it's worth it.</p>
+
+  <h3>Step 4 — Export the Poster</h3>
+  <p>Tap the share icon. Pick a template. Export. You get a vertical image (9:16, sized for Instagram Stories and iMessage previews) with the route, key stats, and your best photos laid out in a clean design.</p>
+
+  <p>The free version includes a basic template with a small Drivio watermark. Pro includes premium templates without the watermark, plus animated exports that work beautifully as Stories or Reels.</p>
+
+  <h2>Tips for a Poster People Actually Engage With</h2>
+
+  <h3>Keep the route the hero.</h3>
+  <p>The line on the map is the single most recognizable element of a road trip poster. Don't clutter around it. Let it breathe.</p>
+
+  <h3>3–6 photos is the sweet spot.</h3>
+  <p>Any more and the poster feels busy. Any fewer and it feels like a placeholder. Pick the three to six pictures that genuinely tell the story — not every photo from every stop.</p>
+
+  <h3>Stats are for bragging, gently.</h3>
+  <p>"412 miles · 2 days · 14 stops" is a quiet flex that looks great and costs nothing. Keep the number formatting consistent.</p>
+
+  <h3>A title that isn't a date.</h3>
+  <p>"PCH North to South," "Grandma's 90th in Tucson," "The Detour Through Moab." Titles do free narrative work. Use them.</p>
+
+  <h2>Why It's Vertical</h2>
+
+  <p>Because that's the format people share. Instagram Stories, iMessage previews, text threads, Reels — all of it favors 9:16. A landscape poster shrinks to a sliver on a phone; a vertical one fills the screen. Drivio exports vertical by default for exactly this reason.</p>
+
+  <p>One trip. Four ingredients. Sixty seconds. A thing worth sharing.</p>
+
+  <div class="cta-box">
+    <h3>Turn your next road trip into something worth sharing.</h3>
+    <p>Drivio records every drive automatically, and the posters practically build themselves.</p>
+    <a href="../../#download" class="cta-btn">Learn more about Drivio →</a>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-inner">
+    <p>&copy; 2026 Drivio. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="mailto:support@drivio.to">Contact</a>
+      <a href="../../support.html">Support</a>
+      <a href="../../privacy.html">Privacy Policy</a>
+      <a href="../../terms.html">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

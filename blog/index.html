@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Drivio</title>
+<meta name="description" content="Stories, guides, and deep dives on automatic trip tracking, privacy, and road trip memories from the makers of Drivio.">
+<link rel="canonical" href="https://drivio.to/blog/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Drivio">
+<meta property="og:url" content="https://drivio.to/blog/">
+<meta property="og:title" content="Blog — Drivio">
+<meta property="og:description" content="Stories, guides, and deep dives on automatic trip tracking, privacy, and road trip memories from the makers of Drivio.">
+<meta property="og:image" content="https://drivio.to/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Blog — Drivio">
+<meta name="twitter:description" content="Stories, guides, and deep dives on automatic trip tracking, privacy, and road trip memories from the makers of Drivio.">
+<meta name="twitter:image" content="https://drivio.to/icon-512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #0B1A2E; --bg-card: #112240; --bg-card-hover: #15294E; --accent: #F0833D;
+  --text: #E2E8F0; --text-secondary: #94A3B8; --text-muted: #64748B;
+  --border: rgba(255,255,255,0.06);
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg); color: var(--text);
+  line-height: 1.7; -webkit-font-smoothing: antialiased;
+}
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  background: rgba(11,26,46,0.8);
+  border-bottom: 1px solid var(--border);
+}
+nav .container {
+  max-width: 1120px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; height: 64px;
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo img { width: 32px; height: 32px; border-radius: 8px; object-fit: cover; }
+.nav-logo-text { font-size: 20px; font-weight: 800; letter-spacing: -0.3px; }
+.nav-logo-text .w { color: #fff; }
+.nav-logo-text .o { color: #F0833D; }
+.content {
+  max-width: 760px; margin: 0 auto;
+  padding: 120px 24px 80px;
+}
+.page-header { margin-bottom: 56px; }
+.page-header .eyebrow {
+  font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2px;
+  color: var(--accent); margin-bottom: 12px;
+}
+h1 {
+  font-size: 42px; font-weight: 800; letter-spacing: -1.2px;
+  margin-bottom: 12px; line-height: 1.15;
+}
+.page-header .lede {
+  font-size: 17px; color: var(--text-secondary);
+  max-width: 620px; line-height: 1.6;
+}
+.post-list {
+  display: flex; flex-direction: column;
+  gap: 4px;
+}
+.post-card {
+  display: block;
+  background: transparent;
+  border-top: 1px solid var(--border);
+  padding: 32px 4px;
+  text-decoration: none; color: inherit;
+  transition: padding 0.2s;
+}
+.post-card:last-child { border-bottom: 1px solid var(--border); }
+.post-card:hover { padding-left: 12px; }
+.post-meta {
+  font-size: 13px; color: var(--text-muted);
+  margin-bottom: 10px;
+  display: flex; gap: 12px; flex-wrap: wrap;
+  text-transform: uppercase; letter-spacing: 1.2px; font-weight: 600;
+}
+.post-meta .category { color: var(--accent); }
+.post-title {
+  font-size: 22px; font-weight: 700;
+  letter-spacing: -0.4px; line-height: 1.3;
+  margin-bottom: 10px; color: var(--text);
+  transition: color 0.2s;
+}
+.post-card:hover .post-title { color: var(--accent); }
+.post-excerpt {
+  font-size: 15px; color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 24px;
+}
+.footer-inner {
+  max-width: 760px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+}
+footer p { font-size: 13px; color: var(--text-muted); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a {
+  font-size: 13px; color: var(--text-muted);
+  text-decoration: none; transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--text-secondary); }
+@media (max-width: 640px) {
+  h1 { font-size: 34px; }
+  .content { padding: 100px 20px 60px; }
+  .post-card { padding: 24px 4px; }
+  .post-title { font-size: 19px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="../" class="nav-logo">
+      <img src="../logo.png" alt="Drivio logo">
+      <span class="nav-logo-text"><span class="w">Driv</span><span class="o">io</span></span>
+    </a>
+  </div>
+</nav>
+
+<div class="content">
+  <div class="page-header">
+    <div class="eyebrow">Drivio Blog</div>
+    <h1>Stories from the road.</h1>
+    <p class="lede">Guides, deep dives, and opinions on automatic trip tracking, privacy, and turning drives into memories.</p>
+  </div>
+
+  <div class="post-list">
+
+    <a href="automatic-trip-tracking-iphone/" class="post-card">
+      <div class="post-meta">
+        <span class="category">How it works</span>
+        <span>April 17, 2026</span>
+        <span>5 min read</span>
+      </div>
+      <h2 class="post-title">How to Track Every Drive Automatically on iPhone (No Buttons, No Timers)</h2>
+      <p class="post-excerpt">Apps that ask you to tap "Start" for every drive are doing it wrong. Here's how iPhones can detect driving entirely on their own — and what good automatic detection actually looks like.</p>
+    </a>
+
+    <a href="privacy-first-iphone-trip-tracker/" class="post-card">
+      <div class="post-meta">
+        <span class="category">Privacy</span>
+        <span>April 17, 2026</span>
+        <span>5 min read</span>
+      </div>
+      <h2 class="post-title">The Only iPhone Trip Tracker That Never Sees Your Data</h2>
+      <p class="post-excerpt">Most mileage trackers upload every trip to their servers the moment you finish a drive. Drivio doesn't. Here's how a local-first iOS trip tracker actually works — and why it matters.</p>
+    </a>
+
+    <a href="share-live-location-family-while-driving/" class="post-card">
+      <div class="post-meta">
+        <span class="category">Live Share</span>
+        <span>April 17, 2026</span>
+        <span>4 min read</span>
+      </div>
+      <h2 class="post-title">How to Share Your Live Location With Family Only While Driving</h2>
+      <p class="post-excerpt">Find My shares your location 24/7. Most people don't actually want that. Here's how to share only when you're on the road — and only with the people you choose.</p>
+    </a>
+
+    <a href="drivio-vs-mileiq-vs-stride/" class="post-card">
+      <div class="post-meta">
+        <span class="category">Comparison</span>
+        <span>April 17, 2026</span>
+        <span>7 min read</span>
+      </div>
+      <h2 class="post-title">Drivio vs MileIQ vs Stride: A Privacy-First Comparison</h2>
+      <p class="post-excerpt">Three iOS trip trackers, three very different privacy postures. Here's what each one collects, where your data goes, and which one actually respects you.</p>
+    </a>
+
+    <a href="gps-to-road-trip-poster/" class="post-card">
+      <div class="post-meta">
+        <span class="category">Road trip</span>
+        <span>April 17, 2026</span>
+        <span>3 min read</span>
+      </div>
+      <h2 class="post-title">From GPS Trace to Shareable Road Trip Poster in 60 Seconds</h2>
+      <p class="post-excerpt">A GPS trace is just a wiggly line on a map. Here's how to turn it into a vertical poster your friends actually want to share.</p>
+    </a>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <p>&copy; 2026 Drivio. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="mailto:support@drivio.to">Contact</a>
+      <a href="../support.html">Support</a>
+      <a href="../privacy.html">Privacy Policy</a>
+      <a href="../terms.html">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
