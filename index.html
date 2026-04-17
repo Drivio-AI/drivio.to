@@ -88,7 +88,8 @@
   --bg-card-hover: #1E4B68;
   --accent: #C55A40;
   --accent-glow: rgba(197, 90, 64, 0.18);
-  --accent-bright: #D97252;
+  --accent-bright: #E88968;
+  --accent-strong: #A34630;
   --cream: #F5EEE0;
   --text: #F5EEE0;
   --text-secondary: #A8B7C4;
@@ -173,7 +174,7 @@ nav .container {
 }
 .nav-links a:hover { color: var(--text); }
 .nav-cta {
-  background: var(--accent) !important; color: var(--cream) !important;
+  background: var(--accent-strong) !important; color: var(--cream) !important;
   padding: 8px 20px; border-radius: 8px;
   font-weight: 600 !important;
   transition: transform 0.2s, box-shadow 0.2s !important;
@@ -218,7 +219,7 @@ h1 {
   margin-bottom: 24px;
 }
 h1 .gradient {
-  background: linear-gradient(135deg, #B34F38, #C55A40, #E07D5E);
+  background: linear-gradient(135deg, #E07D5E, #E88968, #F5B598);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -238,7 +239,7 @@ h1 .gradient {
   cursor: pointer; border: none;
 }
 .btn-primary {
-  background: var(--accent); color: var(--cream);
+  background: var(--accent-strong); color: var(--cream);
   box-shadow: 0 4px 24px rgba(197, 90, 64, 0.32);
 }
 .btn-primary:hover {
@@ -329,7 +330,7 @@ section { padding: 100px 0; }
   content: counter(step);
   display: flex; align-items: center; justify-content: center;
   width: 56px; height: 56px;
-  background: linear-gradient(135deg, #B34F38, #C55A40);
+  background: linear-gradient(135deg, #923E29, #A34630);
   border-radius: 16px;
   font-size: 22px; font-weight: 800;
   margin: 0 auto 20px;
@@ -368,7 +369,7 @@ section { padding: 100px 0; }
 }
 .pricing-badge {
   position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-  background: linear-gradient(135deg, #B34F38, #C55A40);
+  background: linear-gradient(135deg, #923E29, #A34630);
   color: var(--cream);
   padding: 4px 16px; border-radius: 100px;
   font-size: 12px; font-weight: 700;
