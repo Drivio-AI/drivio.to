@@ -97,7 +97,7 @@ footer p { font-size: 13px; color: var(--text-muted); }
 
 <div class="content">
   <h1>Privacy Policy</h1>
-  <p class="subtitle">Effective date: April 6, 2026</p>
+  <p class="subtitle">Effective date: April 17, 2026</p>
 
   <p>Drivio ("we", "our", "the app") is committed to protecting your privacy. This policy explains what data we collect, how we use it, and your rights.</p>
 
@@ -107,6 +107,9 @@ footer p { font-size: 13px; color: var(--text-muted); }
   <p><strong>Motion.</strong> Accelerometer and motion activity (walking, driving, stationary) are read on-device to detect trip starts and stops. Not transmitted.</p>
   <p><strong>Trip data.</strong> Start/end times, distances, routes, categories, and vehicle assignments are stored in a local database on your device.</p>
   <p><strong>Subscription status.</strong> If you subscribe, Apple handles payment processing. The app receives only your subscription status from Apple and stores it on-device. We do not receive payment details.</p>
+  <p><strong>Photo library (optional).</strong> When you tap "Add Photo" on a journey, iOS shows the standard photo picker and only the photos you explicitly choose are surfaced to Drivio. The app stores only the photo's iOS reference (localIdentifier), never the image bytes. Your photo library content never leaves your device. You can revoke photo access at any time in iOS Settings → Privacy → Photos.</p>
+  <p><strong>Face ID / biometric (optional).</strong> If you enable app lock, iOS performs authentication locally on the Secure Enclave. Drivio receives only a pass/fail result and never sees biometric data.</p>
+  <p><strong>Widget data.</strong> Drivio's home-screen widget reads the most recent trip through an iOS App Group — a private, on-device container shared only with Drivio's own widget extension. Widget data never leaves your device.</p>
 
   <h2>2. Data We Collect</h2>
   <p><strong>None.</strong> Drivio has no backend server. We do not receive, store, or have access to any of your data.</p>
@@ -119,7 +122,8 @@ footer p { font-size: 13px; color: var(--text-muted); }
   <h2>3. Where Data Is Stored</h2>
   <p><strong>Local-first.</strong> Drivio has no backend server. All trip data is stored on your device in a local database, and nothing is ever uploaded to us.</p>
   <p><strong>iCloud backup (optional).</strong> If you enable iCloud backup (Pro plan), your data is stored in your personal iCloud Drive account. We cannot access your iCloud data.</p>
-  <p><strong>No third-party data processors.</strong> Drivio does not send your data to any third-party analytics, mapping, or advertising services. The only external services involved are Apple's own (App Store for subscriptions, iCloud for optional backup).</p>
+  <p><strong>Live Share (Pro, optional).</strong> When you create a live trip share, Drivio publishes your location to Apple's CloudKit in your private iCloud database. If you choose a public link, iOS generates a shareable URL anyone with the link can view; the link and its data automatically expire when the trip ends or at the expiry time you set. If you choose private sharing, only the iCloud accounts you invite can view. Ending or stopping the share removes the record from your iCloud. All live-share data stays within your iCloud account — Drivio has no server and no way to read it.</p>
+  <p><strong>No third-party data processors.</strong> Drivio does not send your data to any third-party analytics, mapping, or advertising services. The only external services involved are Apple's own (App Store for subscriptions, iCloud / CloudKit for optional backup and live sharing).</p>
 
   <h2>4. Location Permission</h2>
   <p>Drivio requires "Always Allow" location permission to detect trips automatically in the background. You can change this at any time in iOS Settings. If you revoke location access, trip detection will stop but your existing data remains on your device.</p>
