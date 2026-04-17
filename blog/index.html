@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog — Drivio</title>
-<meta name="description" content="Stories, guides, and deep dives on automatic trip tracking, privacy, and road trip memories from the makers of Drivio.">
+<meta name="description" content="Stories, guides, and deep dives on automatic trip tracking, privacy, daily commuting, road trip memories, and live location sharing — from the makers of Drivio.">
 <link rel="canonical" href="https://drivio.to/blog/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Drivio">
@@ -14,7 +14,7 @@
 <meta property="og:image" content="https://drivio.to/icon-512.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Blog — Drivio">
-<meta name="twitter:description" content="Stories, guides, and deep dives on automatic trip tracking, privacy, and road trip memories from the makers of Drivio.">
+<meta name="twitter:description" content="Stories, guides, and deep dives on automatic trip tracking, privacy, and road trip memories.">
 <meta name="twitter:image" content="https://drivio.to/icon-512.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
@@ -69,37 +69,40 @@ h1 {
   font-size: 17px; color: var(--text-secondary);
   max-width: 620px; line-height: 1.6;
 }
-.post-list {
-  display: flex; flex-direction: column;
-  gap: 4px;
+.category-section { margin-bottom: 56px; }
+.category-heading {
+  font-size: 14px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1.8px;
+  color: var(--accent);
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(240,131,61,0.2);
+  margin-bottom: 4px;
 }
 .post-card {
   display: block;
   background: transparent;
-  border-top: 1px solid var(--border);
-  padding: 32px 4px;
+  border-bottom: 1px solid var(--border);
+  padding: 24px 4px;
   text-decoration: none; color: inherit;
   transition: padding 0.2s;
 }
-.post-card:last-child { border-bottom: 1px solid var(--border); }
 .post-card:hover { padding-left: 12px; }
 .post-meta {
-  font-size: 13px; color: var(--text-muted);
-  margin-bottom: 10px;
+  font-size: 12px; color: var(--text-muted);
+  margin-bottom: 8px;
   display: flex; gap: 12px; flex-wrap: wrap;
   text-transform: uppercase; letter-spacing: 1.2px; font-weight: 600;
 }
-.post-meta .category { color: var(--accent); }
 .post-title {
-  font-size: 22px; font-weight: 700;
-  letter-spacing: -0.4px; line-height: 1.3;
-  margin-bottom: 10px; color: var(--text);
+  font-size: 20px; font-weight: 700;
+  letter-spacing: -0.3px; line-height: 1.3;
+  margin-bottom: 8px; color: var(--text);
   transition: color 0.2s;
 }
 .post-card:hover .post-title { color: var(--accent); }
 .post-excerpt {
-  font-size: 15px; color: var(--text-secondary);
-  line-height: 1.6;
+  font-size: 14.5px; color: var(--text-secondary);
+  line-height: 1.55;
   margin-bottom: 0;
 }
 footer {
@@ -121,8 +124,9 @@ footer p { font-size: 13px; color: var(--text-muted); }
 @media (max-width: 640px) {
   h1 { font-size: 34px; }
   .content { padding: 100px 20px 60px; }
-  .post-card { padding: 24px 4px; }
-  .post-title { font-size: 19px; }
+  .post-card { padding: 20px 4px; }
+  .post-title { font-size: 18px; }
+  .category-section { margin-bottom: 40px; }
 }
 </style>
 </head>
@@ -141,62 +145,149 @@ footer p { font-size: 13px; color: var(--text-muted); }
   <div class="page-header">
     <div class="eyebrow">Drivio Blog</div>
     <h1>Stories from the road.</h1>
-    <p class="lede">Guides, deep dives, and opinions on automatic trip tracking, privacy, and turning drives into memories.</p>
+    <p class="lede">Guides, deep dives, and opinions on automatic trip tracking, privacy, daily commuting, road trip memories, and live location sharing.</p>
   </div>
 
-  <div class="post-list">
-
-    <a href="automatic-trip-tracking-iphone/" class="post-card">
-      <div class="post-meta">
-        <span class="category">How it works</span>
-        <span>April 17, 2026</span>
-        <span>5 min read</span>
-      </div>
-      <h2 class="post-title">How to Track Every Drive Automatically on iPhone (No Buttons, No Timers)</h2>
-      <p class="post-excerpt">Apps that ask you to tap "Start" for every drive are doing it wrong. Here's how iPhones can detect driving entirely on their own — and what good automatic detection actually looks like.</p>
-    </a>
+  <div class="category-section">
+    <div class="category-heading">Privacy</div>
 
     <a href="privacy-first-iphone-trip-tracker/" class="post-card">
-      <div class="post-meta">
-        <span class="category">Privacy</span>
-        <span>April 17, 2026</span>
-        <span>5 min read</span>
-      </div>
+      <div class="post-meta"><span>April 17, 2026</span><span>5 min read</span></div>
       <h2 class="post-title">The Only iPhone Trip Tracker That Never Sees Your Data</h2>
-      <p class="post-excerpt">Most mileage trackers upload every trip to their servers the moment you finish a drive. Drivio doesn't. Here's how a local-first iOS trip tracker actually works — and why it matters.</p>
+      <p class="post-excerpt">How a local-first iOS trip tracker actually works — and why "we can't see your data" is a stronger promise than "we won't."</p>
     </a>
 
-    <a href="share-live-location-family-while-driving/" class="post-card">
-      <div class="post-meta">
-        <span class="category">Live Share</span>
-        <span>April 17, 2026</span>
-        <span>4 min read</span>
-      </div>
-      <h2 class="post-title">How to Share Your Live Location With Family Only While Driving</h2>
-      <p class="post-excerpt">Find My shares your location 24/7. Most people don't actually want that. Here's how to share only when you're on the road — and only with the people you choose.</p>
+    <a href="mileage-tracker-without-login/" class="post-card">
+      <div class="post-meta"><span>April 17, 2026</span><span>5 min read</span></div>
+      <h2 class="post-title">Why Your Mileage Tracker Shouldn't Need a Login or Email</h2>
+      <p class="post-excerpt">Most mileage trackers ask for your email before they'll track a single drive. Accounts are there for the company, not you. Here's how to do without one.</p>
+    </a>
+
+    <a href="stop-uploading-your-location/" class="post-card">
+      <div class="post-meta"><span>April 17, 2026</span><span>6 min read</span></div>
+      <h2 class="post-title">Stop Uploading Your Location: A Local-First Approach to Trip Tracking</h2>
+      <p class="post-excerpt">The default architecture of every location-aware app is cloud-first — phone streams up, server stores forever. Local-first is the quiet alternative.</p>
+    </a>
+
+    <a href="choose-private-mileage-tracker/" class="post-card">
+      <div class="post-meta"><span>April 17, 2026</span><span>6 min read</span></div>
+      <h2 class="post-title">How to Choose a Mileage Tracker That Respects Your Privacy</h2>
+      <p class="post-excerpt">A seven-point checklist for evaluating the privacy posture of any iPhone trip tracker — the red flags, the green flags, and the questions nobody asks.</p>
+    </a>
+
+    <a href="apple-not-collected-label-explained/" class="post-card">
+      <div class="post-meta"><span>April 17, 2026</span><span>5 min read</span></div>
+      <h2 class="post-title">What Apple's 'Not Collected' Label Actually Means for Your Data</h2>
+      <p class="post-excerpt">The App Store's "Data Not Collected" badge is more specific than it looks — and rarer than you'd expect. Here's exactly what it covers.</p>
     </a>
 
     <a href="drivio-vs-mileiq-vs-stride/" class="post-card">
-      <div class="post-meta">
-        <span class="category">Comparison</span>
-        <span>April 17, 2026</span>
-        <span>7 min read</span>
-      </div>
+      <div class="post-meta"><span>April 17, 2026</span><span>7 min read</span></div>
       <h2 class="post-title">Drivio vs MileIQ vs Stride: A Privacy-First Comparison</h2>
-      <p class="post-excerpt">Three iOS trip trackers, three very different privacy postures. Here's what each one collects, where your data goes, and which one actually respects you.</p>
+      <p class="post-excerpt">Three iOS trip trackers, three very different privacy postures. How they actually compare on data architecture, account model, and target use case.</p>
+    </a>
+  </div>
+
+  <div class="category-section">
+    <div class="category-heading">How It Works</div>
+
+    <a href="automatic-trip-tracking-iphone/" class="post-card">
+      <div class="post-meta"><span>April 17, 2026</span><span>5 min read</span></div>
+      <h2 class="post-title">How to Track Every Drive Automatically on iPhone (No Buttons, No Timers)</h2>
+      <p class="post-excerpt">Apps that ask you to tap "Start" for every drive are doing it wrong. Here's how iPhones can detect driving entirely on their own.</p>
+    </a>
+
+    <a href="iphone-trip-tracking-battery-life/" class="post-card">
+      <div class="post-meta"><span>April 17, 2026</span><span>5 min read</span></div>
+      <h2 class="post-title">Why iPhones Can Detect Driving Without Killing Your Battery</h2>
+      <p class="post-excerpt">The iOS stack provides several low-power primitives designed for always-on awareness. Used correctly, a trip tracker costs under 3% battery per day.</p>
+    </a>
+
+    <a href="iphone-knows-youre-driving/" class="post-card">
+      <div class="post-meta"><span>April 17, 2026</span><span>4 min read</span></div>
+      <h2 class="post-title">Why Your iPhone Knows You're Driving Before You Do</h2>
+      <p class="post-excerpt">The four signals iOS fuses together to detect driving — CarPlay, Bluetooth, motion, location — and why no single one is enough.</p>
+    </a>
+
+    <a href="automatic-trip-tracker-reliability/" class="post-card">
+      <div class="post-meta"><span>April 17, 2026</span><span>5 min read</span></div>
+      <h2 class="post-title">Can You Trust an Automatic Trip Tracker to Not Miss Drives?</h2>
+      <p class="post-excerpt">No tracker catches 100% of drives — any app that claims to is lying. Here's what makes them miss, and how to measure accuracy in practice.</p>
+    </a>
+  </div>
+
+  <div class="category-section">
+    <div class="category-heading">Daily Commute</div>
+
+    <a href="daily-commute-log-iphone/" class="post-card">
+      <div class="post-meta"><span>April 17, 2026</span><span>4 min read</span></div>
+      <h2 class="post-title">How to Build a Daily Commute Log Without Lifting a Finger</h2>
+      <p class="post-excerpt">A commute log used to be a spiral notebook you never filled in. Now your iPhone can do it on its own — and the result is more useful than you'd expect.</p>
+    </a>
+
+    <a href="see-where-you-drove-last-month/" class="post-card">
+      <div class="post-meta"><span>April 17, 2026</span><span>4 min read</span></div>
+      <h2 class="post-title">How to See Where You Actually Drove Last Month on iPhone</h2>
+      <p class="post-excerpt">If someone asked you to describe your driving last month, you'd probably estimate wrong by 30%. A month of passively logged data is honest where memory isn't.</p>
+    </a>
+
+    <a href="free-iphone-trip-tracker/" class="post-card">
+      <div class="post-meta"><span>April 17, 2026</span><span>4 min read</span></div>
+      <h2 class="post-title">The Best Free Way to Track Every Drive on Your iPhone</h2>
+      <p class="post-excerpt">"Free" in the App Store covers capped-free, ad-supported, and genuinely free. For trip trackers specifically, the difference matters.</p>
+    </a>
+  </div>
+
+  <div class="category-section">
+    <div class="category-heading">Road Trip</div>
+
+    <a href="road-trip-journal-friends-will-read/" class="post-card">
+      <div class="post-meta"><span>April 17, 2026</span><span>5 min read</span></div>
+      <h2 class="post-title">How to Make a Road Trip Journal Your Friends Will Actually Read</h2>
+      <p class="post-excerpt">Most road trip journals nobody reads — not even the person who made them. The ones that get passed around follow a few specific rules.</p>
+    </a>
+
+    <a href="memory-pins-road-trip-stops/" class="post-card">
+      <div class="post-meta"><span>April 17, 2026</span><span>3 min read</span></div>
+      <h2 class="post-title">Memory Pins: How to Remember the Best Coffee Stop on Your Road Trip</h2>
+      <p class="post-excerpt">A memory pin is small: a dot, a sentence, maybe a photo. It's also the single most useful unit of travel storytelling, because it's the one you'd forget.</p>
     </a>
 
     <a href="gps-to-road-trip-poster/" class="post-card">
-      <div class="post-meta">
-        <span class="category">Road trip</span>
-        <span>April 17, 2026</span>
-        <span>3 min read</span>
-      </div>
+      <div class="post-meta"><span>April 17, 2026</span><span>3 min read</span></div>
       <h2 class="post-title">From GPS Trace to Shareable Road Trip Poster in 60 Seconds</h2>
-      <p class="post-excerpt">A GPS trace is just a wiggly line on a map. Here's how to turn it into a vertical poster your friends actually want to share.</p>
+      <p class="post-excerpt">A raw GPS trace is a squiggle. Here's what separates a squiggle from a poster you actually want to frame, print, or share.</p>
     </a>
 
+    <a href="match-iphone-photos-to-road-trip/" class="post-card">
+      <div class="post-meta"><span>April 17, 2026</span><span>4 min read</span></div>
+      <h2 class="post-title">How to Match iPhone Photos to a Road Trip Automatically</h2>
+      <p class="post-excerpt">Every iPhone photo carries two hidden fields — timestamp and GPS — that make trip matching possible. Here's how it works and when it doesn't.</p>
+    </a>
   </div>
+
+  <div class="category-section">
+    <div class="category-heading">Live Share</div>
+
+    <a href="share-live-location-family-while-driving/" class="post-card">
+      <div class="post-meta"><span>April 17, 2026</span><span>4 min read</span></div>
+      <h2 class="post-title">How to Share Your Live Location With Family Only While Driving</h2>
+      <p class="post-excerpt">Find My shares your location 24/7. Most people don't want that. Here's how to share only when you're on the road, and only with the people you choose.</p>
+    </a>
+
+    <a href="share-eta-while-driving/" class="post-card">
+      <div class="post-meta"><span>April 17, 2026</span><span>4 min read</span></div>
+      <h2 class="post-title">Like Find My, But Just for the Drive: A Better Way to Share ETA</h2>
+      <p class="post-excerpt">Texting "where are you?" is a failed ETA experience. Sharing your location 24/7 is overkill. There's a middle path.</p>
+    </a>
+
+    <a href="teen-driver-check-ins/" class="post-card">
+      <div class="post-meta"><span>April 17, 2026</span><span>4 min read</span></div>
+      <h2 class="post-title">Setting Up Safe Driving Check-Ins Between Parents and Teen Drivers</h2>
+      <p class="post-excerpt">Enough visibility for safety, not so much that you undermine the independence they just earned. The workable middle path and how to set it up.</p>
+    </a>
+  </div>
+
 </div>
 
 <footer>
