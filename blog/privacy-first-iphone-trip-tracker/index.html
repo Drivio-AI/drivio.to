@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Only iPhone Trip Tracker That Never Sees Your Data — Drivio Blog</title>
-<meta name="description" content="Most mileage trackers upload every trip to their servers the moment you finish driving. Drivio doesn't. Here's how a local-first iOS trip tracker actually works, and why it matters.">
+<title>How Drivio Stores Your Trips: Local History and Optional iCloud — Drivio Blog</title>
+<meta name="description" content="How Drivio stores trip history locally, backs up to iCloud Drive, and shares location through CloudKit when you choose.">
 <link rel="canonical" href="https://drivio.to/blog/privacy-first-iphone-trip-tracker/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Drivio">
 <meta property="og:url" content="https://drivio.to/blog/privacy-first-iphone-trip-tracker/">
-<meta property="og:title" content="The Only iPhone Trip Tracker That Never Sees Your Data">
-<meta property="og:description" content="Most mileage trackers upload every trip to their servers the moment you finish driving. Drivio doesn't. Here's how a local-first iOS trip tracker actually works.">
+<meta property="og:title" content="How Drivio Stores Your Trips: Local History and Optional iCloud">
+<meta property="og:description" content="How Drivio stores trip history locally, backs up to iCloud Drive, and shares location through CloudKit when you choose.">
 <meta property="og:image" content="https://drivio.to/og-image.png">
 <meta property="article:published_time" content="2026-04-17">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Only iPhone Trip Tracker That Never Sees Your Data">
-<meta name="twitter:description" content="How a local-first iOS trip tracker works — and why it matters that your drives never leave your device.">
+<meta name="twitter:title" content="How Drivio Stores Your Trips: Local History and Optional iCloud">
+<meta name="twitter:description" content="How Drivio stores trip history locally, backs up to iCloud Drive, and shares location through CloudKit when you choose.">
 <meta name="twitter:image" content="https://drivio.to/og-image.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16.png">
@@ -29,10 +29,11 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "The Only iPhone Trip Tracker That Never Sees Your Data",
-  "description": "How a local-first iOS trip tracker works, and why it matters that your drives never leave your device.",
+  "headline": "How Drivio Stores Your Trips: Local History and Optional iCloud",
+  "description": "How Drivio stores trip history locally, with optional iCloud backup and CloudKit Live Share.",
   "image": "https://drivio.to/og-image.png",
   "datePublished": "2026-04-17",
+  "dateModified": "2026-11-03",
   "author": { "@type": "Organization", "name": "Drivio" },
   "publisher": {
     "@type": "Organization",
@@ -109,86 +110,28 @@ footer p { font-size: 13px; color: var(--text-muted); }
 
   <div class="article-meta">
     <span class="category">Privacy</span>
-    <span>April 17, 2026</span>
-    <span>5 min read</span>
+    <span>April 17, 2026 · Updated November 3, 2026</span>
+    <span>2 min read</span>
   </div>
 
-  <h1>The Only iPhone Trip Tracker That Never Sees Your Data</h1>
+  <h1>How Drivio Stores Your Trips: Local History and Optional iCloud</h1>
 
-  <p class="lede">Most mileage trackers upload every trip to their servers the moment you finish a drive. We think that's strange — so Drivio doesn't. Here's what that actually means, and why it's harder than it sounds.</p>
+  <p class="lede">Your trip history is local by default. Here is what changes when you turn on iCloud backup or share a drive with someone else.</p>
 
-  <h2>What Most Trackers Actually Do</h2>
-
-  <p>Install a typical mileage tracker and the first thing it asks for is your email. Then it wants you to create an account. Then it wants you to verify the account. Only <em>then</em> does it start tracking drives. And every drive, from that point on, gets uploaded to their servers — complete with GPS coordinates, timestamps, and whatever else they're collecting about your phone.</p>
-
-  <p>The reason is simple: their business model requires it. They sell trip logs to fleet managers, they do "driving insights" research, they need accounts because accounts are the unit of billing. So the architecture is server-first by default — your phone is just a dumb data collector.</p>
-
-  <p>That's a reasonable business, but it's not what we wanted to build. We wanted the opposite: a trip tracker where the company literally cannot see your data, because it never leaves your device.</p>
-
-  <h2>What Apple Means by "Collect"</h2>
-
-  <p>Apple has a specific, useful definition of <em>data collection</em> that they use in the App Store Privacy labels:</p>
-
-  <blockquote>"Collect" means transmitting data off the device in a way that allows you or your third-party partners to access it for longer than the time necessary to service the transmitted request in real time.</blockquote>
-
-  <p>Read that carefully. It's not "does the app <em>read</em> your data" — an app has to read data to do anything useful. It's "does the app <em>send it somewhere</em> where it sticks around."</p>
-
-  <p>Under that definition, Drivio collects <strong>nothing</strong>. Your trips are read from GPS, stored in a local database on your device, and that's it. Nothing leaves.</p>
-
-  <h2>The Local-First Architecture</h2>
-
-  <p>Here's what's actually happening when Drivio records a trip:</p>
-
-  <ol>
-    <li>iOS wakes the app because of a Bluetooth connection, CarPlay event, or significant-change location.</li>
-    <li>The app confirms you're driving by checking motion activity.</li>
-    <li>GPS coordinates are streamed to a <strong>local Core Data database</strong> on your iPhone as you drive.</li>
-    <li>When the trip ends, the record is finalized — still entirely on your device.</li>
-    <li>When you open the app, you see your trip, rendered from that local database.</li>
-  </ol>
-
-  <p>There is no step where data goes to Drivio's servers. In fact, <strong>we don't have servers that receive trip data</strong>. There's nothing listening. If you hacked us tomorrow, there would be no trip database to steal, because we don't have one.</p>
-
-  <h2>"But What About iCloud Sync?"</h2>
-
-  <p>iCloud sync, which is an optional Pro feature, is where this gets interesting. When it's on, your trips sync across your own devices — iPhone, iPad — through your personal iCloud account.</p>
-
-  <p>That data sits in <strong>your</strong> iCloud Private Database, which is a part of Apple's CloudKit designed specifically for this pattern. The developer (us) has no access to it. We can't read it. We can't enumerate it. We literally cannot see who is using iCloud sync, let alone what their trips look like. Apple engineered it that way on purpose.</p>
-
-  <p>So even with sync on, your data goes from <em>your device</em> to <em>your iCloud</em> — never to us.</p>
-
-  <h2>No Account, No Email, No Login</h2>
-
-  <p>One direct consequence of all this: we don't ask for an email. There's no sign-up flow. There's no "verify your account" step. You download the app, grant location and motion permissions, and drive. That's it.</p>
-
-  <p>Subscriptions work through Apple. When you buy Pro, Apple processes the payment and tells the app "this device has Pro." We never see your name, your email, your payment details, or your Apple ID. We just see that one of the iPhones using Drivio has Pro status — which is enough to unlock the Pro features on that device.</p>
-
-  <h2>What You Give Up</h2>
-
-  <p>Almost nothing. Because the product is built this way from the start, there's no practical feature cost:</p>
-
-  <ul>
-    <li>Automatic trip detection? Happens on-device.</li>
-    <li>Trip history? Stored on-device.</li>
-    <li>Journey curation, memory pins, photos? All on-device.</li>
-    <li>Poster export? Rendered on-device.</li>
-    <li>Cross-device sync? Via your iCloud, not ours.</li>
-    <li>Live Share with family? Peer-to-peer invitation, ephemeral, no persistent server record.</li>
-  </ul>
-
-  <p>The one thing you genuinely can't do: recover your trips if you lose your phone and never turned on iCloud backup. We can't help you because <em>we don't have your trips</em>. That's the trade.</p>
-
-  <h2>Why This Matters</h2>
-
-  <p>Your location history is some of the most sensitive data you generate. Where you sleep. Where you work. Where your kids go to school. Where you go when you're sick. Where you go when you're cheating or not cheating or interviewing or protesting.</p>
-
-  <p>The less of that any company has, the better — for you, and frankly for the company, which now doesn't have to worry about breaches, subpoenas, insider threats, or "we sold your data to an unnamed partner" disclosures. The strongest privacy guarantee is the one that doesn't depend on us being trustworthy. <strong>It's the one where we couldn't leak your data if we tried.</strong></p>
-
-  <p>That's the bar we set for Drivio.</p>
-
+  <h2>Trip history starts on your iPhone</h2>
+  <p>Drivio records location and motion information to build a local trip history after you grant the required permissions. You can review recorded drives and organize them into Journeys without creating a Drivio account.</p>
+  <h2>Local storage does not mean data can never leave</h2>
+  <p>Optional cloud features have different storage rules. An exported poster also leaves the app when you send or post it. Choose those features according to what you want to share.</p>
+  <h2>Optional iCloud backup</h2>
+  <p>Pro users can back up trip data to their personal iCloud Drive. This is a backup stored with Apple, not a promise that all data stays physically on the phone. Review backup settings before relying on them to recover a lost device.</p>
+  <h2>Optional Live Share</h2>
+  <p>Live Share stores location and session data in Apple’s CloudKit. A public link can be opened by anyone who receives it; a private share is limited to invited accounts. Public sessions can end with a trip or after a chosen time limit. Private sessions can continue across drives and show a parked state.</p>
+  <p>Stop a session in My Shares to stop updates. Deleting a session removes its CloudKit records; stopping updates is not the same as deleting stored records. Changes may be delayed by network conditions, and recipients may have saved what they already saw.</p>
+  <h2>Check the details before sharing</h2>
+  <p>Read the <a href="../../privacy.html">privacy policy</a> for permissions and storage, and <a href="../../support.html">support guide</a> for sharing controls. Local history, optional backup, and sharing with another person are three distinct choices.</p>
   <div class="cta-box">
     <h3>A trip tracker that literally can't see your drives.</h3>
-    <p>No account. No email. No backend server. Just your iPhone, doing the work on its own.</p>
+    <p>No Drivio account required. Local trip history, with optional iCloud backup and CloudKit sharing.</p>
     <a href="../../#download" class="cta-btn">Learn more about Drivio →</a>
   </div>
 </article>

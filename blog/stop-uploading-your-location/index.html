@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"Stop Uploading Your Location: A Local-First Approach to Trip Tracking","description":"Why local-first is the right architecture for a trip tracker.","image":"https://drivio.to/og-image.png","datePublished":"2026-04-17","author":{"@type":"Organization","name":"Drivio"},"publisher":{"@type":"Organization","name":"Drivio","logo":{"@type":"ImageObject","url":"https://drivio.to/icon-512.png"}},"mainEntityOfPage":"https://drivio.to/blog/stop-uploading-your-location/"}
+{"@context":"https://schema.org","@type":"Article","headline": "Stop Uploading Your Location: A Local-First Approach to Trip Tracking","description": "Why local-first is the right architecture for a trip tracker.","image":"https://drivio.to/og-image.png","datePublished":"2026-04-17","author":{"@type":"Organization","name":"Drivio"},"publisher":{"@type":"Organization","name":"Drivio","logo":{"@type":"ImageObject","url":"https://drivio.to/icon-512.png"}},"mainEntityOfPage":"https://drivio.to/blog/stop-uploading-your-location/"}
 </script>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -78,7 +78,7 @@ footer p{font-size:13px;color:var(--text-muted)}
 <nav><div class="container"><a href="../../" class="nav-logo"><img src="../../logo.png" alt="Drivio logo" width="32" height="32"><span class="nav-logo-text"><span class="w">Driv</span><span class="o">io</span></span></a></div></nav>
 <article role="main">
 <a href="../" class="back-link">← All posts</a>
-<div class="article-meta"><span class="category">Privacy</span><span>April 17, 2026</span><span>6 min read</span></div>
+<div class="article-meta"><span class="category">Privacy</span><span>April 17, 2026 · Updated November 3, 2026</span><span>6 min read</span></div>
 <h1>Stop Uploading Your Location: A Local-First Approach to Trip Tracking</h1>
 <p class="lede">Fitness apps upload. Mileage apps upload. Weather apps upload. The default architecture of almost every location-aware app is: stream coordinates to a server, store them forever. Local-first is the quiet alternative — and for trip tracking, it's the better one.</p>
 
@@ -145,17 +145,17 @@ footer p{font-size:13px;color:var(--text-muted)}
 <li>Trip history, stats, analytics. (On device.)</li>
 <li>Journey curation and poster export. (On device.)</li>
 <li>Subscription payments. (Apple IAP, not your server.)</li>
-<li>Live Share. (Peer-to-peer invitations, no persistent server-side record.)</li>
+<li>Live Share. (Optional location and session records in Apple’s CloudKit.)</li>
 </ul>
 
 <h2>How Drivio Does It</h2>
-<p>Drivio is local-first all the way through. Trips are stored in a Core Data database on your phone. If you turn on iCloud sync (a Pro feature), they replicate to your personal iCloud — still invisible to us. Live Share invitations are sent peer-to-peer through Apple's push infrastructure without being stored on a Drivio backend.</p>
+<p>Drivio stores trip history on your phone by default. Optional iCloud backup stores a copy in your iCloud Drive. Live Share uses CloudKit records and sharing permissions; see the <a href="../../privacy.html">privacy policy</a> for storage and deletion details.</p>
 <p>There is no Drivio server that has your trips. If you searched our infrastructure, you wouldn't find a database of user drives — because there isn't one. See <a href="../privacy-first-iphone-trip-tracker/">how the architecture actually works</a> for the deeper mechanics, or <a href="../mileage-tracker-without-login/">why there's no account system</a> either.</p>
 <p>Local-first takes more engineering work up front. It pays off every day afterward.</p>
 
 <div class="cta-box">
 <h3>Your trips. Your device. Your rules.</h3>
-<p>Drivio is local-first by design. Nothing uploads. Nothing leaves.</p>
+<p>Drivio is local-first by default. Optional backup and Live Share use Apple’s cloud services.</p>
 <a href="../../#download" class="cta-btn">Learn more about Drivio →</a>
 </div>
 </article>

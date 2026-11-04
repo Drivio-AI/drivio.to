@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Drivio — The Road Trip Journal That Writes Itself</title>
-<meta name="description" content="Drivio is an iOS trip tracker that automatically records every drive — your daily commute, weekend errands, and road trips. Curate them into Journeys with photos, memory pins, and shareable posters.">
+<title>Drivio — Automatic Road Trip Journal for iPhone</title>
+<meta name="description" content="Automatically record your drives on iPhone. Turn road trips into Journeys with photos, memory pins, and shareable posters. Free to start, no account needed.">
 <link rel="canonical" href="https://drivio.to/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Drivio">
 <meta property="og:url" content="https://drivio.to/">
-<meta property="og:title" content="Drivio — The Road Trip Journal That Writes Itself">
-<meta property="og:description" content="Drivio is an iOS trip tracker that automatically records every drive — your daily commute, weekend errands, and road trips. Curate them into Journeys with photos, memory pins, and shareable posters.">
+<meta property="og:title" content="Drivio — Automatic Road Trip Journal for iPhone">
+<meta property="og:description" content="Automatically record your drives on iPhone. Turn road trips into Journeys with photos, memory pins, and shareable posters. Free to start, no account needed.">
 <meta property="og:image" content="https://drivio.to/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Drivio — The Road Trip Journal That Writes Itself">
+<meta name="twitter:title" content="Drivio — Automatic Road Trip Journal for iPhone">
 <meta name="twitter:description" content="An iOS trip tracker that records every drive automatically — your commute, errands, and road trips. Curate them into Journeys with photos and posters.">
 <meta name="twitter:image" content="https://drivio.to/og-image.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -33,9 +33,9 @@
   "@context": "https://schema.org",
   "@type": "MobileApplication",
   "name": "Drivio",
-  "description": "Drivio is an iOS trip tracker that automatically records every drive — your daily commute, weekend errands, and road trips. Curate them into Journeys with photos, memory pins, and shareable posters.",
-  "applicationCategory": "LifestyleApplication",
-  "operatingSystem": "iOS",
+  "description": "Automatically record your drives on iPhone. Turn road trips into Journeys with photos, memory pins, and shareable posters. Free to start, no account needed.",
+  "applicationCategory": "TravelApplication",
+  "operatingSystem": "iOS 18.0 or later",
   "url": "https://drivio.to/",
   "installUrl": "https://apps.apple.com/app/id6762179455",
   "image": "https://drivio.to/icon-512.png",
@@ -73,7 +73,7 @@
   "name": "Drivio",
   "url": "https://drivio.to/",
   "logo": "https://drivio.to/icon-512.png",
-  "description": "Drivio is a privacy-first iOS trip tracker that automatically records every drive — your daily commute, weekend errands, and road trips — with no backend server and no data collection.",
+  "description": "Drivio is a local-first road trip journal for iPhone, with optional iCloud backup and CloudKit live sharing.",
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "customer support",
@@ -101,7 +101,11 @@
   --radius-sm: 10px;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+:focus-visible { outline: 3px solid var(--accent-bright); outline-offset: 5px; }
+main a:not(.btn), figcaption a { color: var(--accent-bright); }
+.skip-link { position: fixed; top: -100px; left: 16px; z-index: 200; padding: 12px; background: var(--cream); color: var(--bg); }
+.skip-link:focus { top: 12px; }
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -188,12 +192,17 @@ nav .container {
 
 /* ─── Hero ─── */
 .hero {
-  min-height: 100vh;
-  display: flex; align-items: center; justify-content: center;
-  text-align: center;
-  padding: 120px 24px 80px;
+  display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr);
+  align-items: center; gap: 64px;
+  text-align: left;
+  padding: 120px 24px 72px;
 }
-.hero-content { max-width: 760px; }
+.hero-content { min-width: 0; }
+.hero-preview { width: 100%; max-width: 300px; justify-self: center; }
+.hero-preview img { display: block; width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--border); }
+.hero-preview figcaption { margin-top: 12px; font-size: 12px; color: var(--text-secondary); text-align: center; }
+.hero-note { margin-top: 16px; font-size: 13px; color: var(--text-secondary); }
+.hero-note + .hero-note { margin-top: 4px; }
 .hero-badge {
   display: inline-flex; align-items: center; gap: 8px;
   background: var(--accent-glow);
@@ -228,10 +237,10 @@ h1 .gradient {
 }
 .hero-sub {
   font-size: 18px; color: var(--text-secondary);
-  max-width: 560px; margin: 0 auto 40px;
+  max-width: 560px; margin: 0 0 32px;
   line-height: 1.7;
 }
-.hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .btn {
   display: inline-flex; align-items: center; gap: 10px;
   padding: 14px 28px; border-radius: 12px;
@@ -444,7 +453,7 @@ footer .container {
 footer p {
   font-size: 13px; color: var(--text-muted);
 }
-.footer-links { display: flex; gap: 24px; }
+.footer-links { display: flex; gap: 16px 24px; flex-wrap: wrap; justify-content: center; }
 .footer-links a {
   font-size: 13px; color: var(--text-muted);
   text-decoration: none;
@@ -463,7 +472,9 @@ footer p {
     grid-template-columns: 1fr;
     max-width: 400px;
   }
-  .hero { min-height: auto; padding: 140px 24px 60px; }
+  .hero { grid-template-columns: 1fr; gap: 36px; text-align: center; padding: 110px 24px 48px; }
+  .hero-sub { margin-left: auto; margin-right: auto; }
+  .hero-preview { max-width: 270px; }
   .hero-actions { flex-direction: column; align-items: center; }
   .btn { width: 100%; justify-content: center; }
   section { padding: 60px 0; }
@@ -471,22 +482,24 @@ footer p {
   footer .container { flex-direction: column; text-align: center; }
 }
 
-/* ─── Scroll animations ─── */
-.fade-up {
-  opacity: 0; transform: translateY(30px);
-  transition: opacity 0.6s, transform 0.6s;
+/* Content remains visible even if JavaScript fails or is disabled. */
+@keyframes reveal { from { transform: translateY(16px); } to { transform: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  .fade-up.visible { animation: reveal 0.5s ease-out; }
 }
-.fade-up.visible {
-  opacity: 1; transform: translateY(0);
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 </style>
 </head>
-<body>
+<body id="top">
+<a class="skip-link" href="#main">Skip to content</a>
 
 <!-- Nav -->
 <nav>
   <div class="container">
-    <a href="#" class="nav-logo">
+    <a href="#top" class="nav-logo" aria-label="Drivio home">
       <img src="logo.png" alt="Drivio logo" width="32" height="32">
       <span class="nav-logo-text"><span class="w">Driv</span><span class="o">io</span></span>
     </a>
@@ -501,22 +514,28 @@ footer p {
 </nav>
 
 
-<main>
+<main id="main">
 
 <!-- Hero -->
-<section class="hero">
+<section class="hero container">
   <div class="hero-content">
-    <div class="hero-badge">Now on the App Store</div>
+    <div class="hero-badge">A road trip journal for iPhone</div>
     <h1>The road trip journal<br><span class="gradient">that writes itself.</span></h1>
-    <p class="hero-sub">Drivio is an iPhone trip tracker that records every drive automatically. You curate the memorable ones into Journeys — add photos, memory pins, and share your story as a beautiful poster.</p>
+    <p class="hero-sub">Automatically record your drives, then turn the memorable ones into Journeys. Add photos and memory pins, revisit your route, and share your story as a poster.</p>
     <div class="hero-actions">
       <a href="https://apps.apple.com/app/id6762179455" class="btn btn-primary" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
         Download on the App Store
       </a>
-      <a href="#features" class="btn btn-secondary">See How It Works</a>
+      <a href="#how" class="btn btn-secondary">See How It Works</a>
     </div>
+    <p class="hero-note">Free to start · No account required · iOS 18+</p>
+    <p class="hero-note">One-time location and motion permissions enable automatic recording.</p>
   </div>
+  <figure class="hero-preview">
+    <img src="images/journey-preview.jpg" alt="Drivio Journey screen showing a Sonoma weekend route, three drives, and memory stops" width="506" height="1100" fetchpriority="high" decoding="async">
+    <figcaption>A weekend in Sonoma, kept as a Journey. App Store preview.</figcaption>
+  </figure>
 </section>
 
 <!-- Features -->
@@ -551,12 +570,12 @@ footer p {
       <div class="feature-card fade-up">
         <div class="feature-icon sage">&#128225;</div>
         <h3>Live Share</h3>
-        <p>Share your drive with family in real time. Like Find My live location, but only while you're actually on the road — and only with the people you choose.</p>
+        <p>Let family follow your drive with optional Live Share. Choose a public link or private invitations, and manage active sessions in My Shares.</p>
       </div>
       <div class="feature-card fade-up">
         <div class="feature-icon rust">&#128274;</div>
         <h3>Private by Design</h3>
-        <p>A privacy-first trip app. Everything stays on your device — Drivio has no backend server, so we never see your data. No analytics, no ad trackers, no third-party services. Just Apple's own.</p>
+        <p>Your trip history is stored on your iPhone by default. Optional backup uses your iCloud Drive; Live Share uses Apple's CloudKit. No Drivio account required. <a href="privacy.html">Read how your data is handled.</a></p>
       </div>
     </div>
   </div>
@@ -571,8 +590,8 @@ footer p {
     </div>
     <div class="steps">
       <div class="step fade-up">
-        <h3>Drive</h3>
-        <p>Just go. Drivio quietly records every drive in the background — no apps to open, no timers to start.</p>
+        <h3>Set up, then drive</h3>
+        <p>Open Drivio once and enable Always Location and Motion &amp; Fitness access. Then let automatic detection record your drives. <a href="support.html">Setup help</a>.</p>
       </div>
       <div class="step fade-up">
         <h3>Curate</h3>
@@ -592,7 +611,7 @@ footer p {
     <div class="section-header fade-up">
       <div class="section-label">Pricing</div>
       <h2 class="section-title">Free to use. Pro to share beautifully.</h2>
-      <p class="section-desc">Record unlimited drives and build unlimited journeys for free. Upgrade when you want premium poster templates, iCloud sync, and live share.</p>
+      <p class="section-desc">Record unlimited drives and build unlimited journeys for free. Upgrade when you want premium poster templates, iCloud backup, and live share.</p>
     </div>
     <div class="pricing-grid">
       <div class="pricing-card fade-up">
@@ -618,11 +637,11 @@ footer p {
           <li>Everything in Free</li>
           <li>Premium poster templates &mdash; no watermark</li>
           <li>Animated poster export (for Stories / Reels)</li>
-          <li>iCloud sync across devices</li>
+          <li>Backup to your iCloud Drive</li>
           <li>Live Share — family and friends follow along in real time</li>
           <li>Priority support</li>
         </ul>
-        <a href="https://apps.apple.com/app/id6762179455" class="btn btn-primary" target="_blank" rel="noopener">Start Pro</a>
+        <a href="https://apps.apple.com/app/id6762179455" class="btn btn-primary" target="_blank" rel="noopener">Get Drivio Pro in the App</a>
       </div>
     </div>
   </div>
@@ -632,8 +651,8 @@ footer p {
 <section id="download" class="cta-section">
   <div class="container">
     <div class="cta-card fade-up">
-      <h2>Your next road trip is already being remembered.</h2>
-      <p>Install Drivio today. The next time you drive, it's already recording. When you're back, your story is waiting.</p>
+      <h2>Make your next road trip one to remember.</h2>
+      <p>Download Drivio, complete the one-time permission setup, and head out. Turn your recorded drives into a Journey when you return.</p>
       <a href="https://apps.apple.com/app/id6762179455" class="btn btn-primary" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
         Download on the App Store
@@ -659,26 +678,18 @@ footer p {
 </footer>
 
 <script>
-// Scroll-triggered fade-up animations
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 80);
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15 });
-
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-});
+// Optional enhancement: native anchors work without JavaScript.
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+}
 </script>
 </body>
 </html>

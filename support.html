@@ -58,7 +58,7 @@
       "name": "How does Live Share work? Who can see my location?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Live Share lets you share your live location with selected contacts only while you're actively driving — it auto-stops when the trip ends. You choose exactly who can follow each trip, and they only see your location during that trip, not before or after. (Pro feature.)"
+        "text": "Live Share uses Apple's CloudKit. Public links can be viewed by anyone with the link and can end with a trip or after your selected time limit. Private shares can remain active across drives and show a parked state between trips. Stop a session in My Shares to stop updates; delete it to remove its CloudKit records. Network delays can affect when changes reach viewers."
       }
     },
     {
@@ -82,7 +82,7 @@
       "name": "How do I export or back up my trips?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Pro subscribers can enable iCloud sync from in-app Settings → iCloud Backup. Your trip data is stored in your personal iCloud account. Individual journeys can be exported as posters from the Journey detail screen."
+        "text": "Pro subscribers can enable iCloud backup from in-app Settings → iCloud Backup. Your trip data is stored in your personal iCloud account. Individual journeys can be exported as posters from the Journey detail screen."
       }
     },
     {
@@ -90,7 +90,7 @@
       "name": "Will Drivio drain my battery?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Drivio uses iOS's significant-location and motion APIs, which are highly battery-efficient. Typical impact is under 3% per day. The app does not run continuously in the background — iOS wakes it only when motion suggests a drive may be starting."
+        "text": "Battery use varies with drive duration, GPS reception, device condition, and Live Share use. Location recording uses power while you drive. Check Settings → Battery over several comparable days; Drivio does not promise a fixed daily battery percentage."
       }
     },
     {
@@ -98,7 +98,7 @@
       "name": "Does Drivio work without an internet connection?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Trip detection and recording work fully offline. Internet is only required for iCloud sync (Pro) and Live Share (Pro)."
+        "text": "Yes. Trip detection and recording work fully offline. Internet is only required for iCloud backup (Pro) and Live Share (Pro)."
       }
     }
   ]
@@ -247,12 +247,7 @@ footer p { font-size: 13px; color: var(--text-muted); }
   <p>Drivio matches photos to journeys based on timestamps and location metadata in your Photos library. Photos without location data, or taken outside the trip's time window, won't be matched automatically. You can add them manually from the Journey edit screen.</p>
 
   <h3>How does Live Share work? Who can see my location?</h3>
-  <p>Live Share lets friends or family follow your live trip. You can share in one of two ways:</p>
-  <ul>
-    <li><strong>Public link</strong> — Drivio generates a shareable URL. Anyone with the link can view your location while sharing is active. The link expires automatically when the trip ends, or at a time limit you choose.</li>
-    <li><strong>Private sharing</strong> — only the Apple&nbsp;ID accounts you invite can view. Invitees see your location only while the session is active.</li>
-  </ul>
-  <p>In both modes, Drivio uses Apple's CloudKit; location data lives only in your iCloud and is removed when the share ends. Drivio has no server and cannot see shared location data itself. (Pro feature.)</p>
+  <p>Live Share uses Apple's CloudKit. Public links can be viewed by anyone with the link and can end with a trip or after your selected time limit. Private shares can remain active across drives and show a parked state between trips. Stop a session in My Shares to stop updates; delete it to remove its CloudKit records. Network delays can affect when changes reach viewers.</p><p>Live Share is an optional Pro feature. Review your active shares before and after a drive.</p>
 
   <h3>How do I cancel my Pro subscription?</h3>
   <p>Subscriptions are managed by Apple, not by Drivio. To cancel: open the Settings app &rarr; tap your name at the top &rarr; <strong>Subscriptions</strong> &rarr; select Drivio &rarr; <strong>Cancel Subscription</strong>. Your Pro features remain active until the end of the current billing period.</p>
@@ -261,16 +256,16 @@ footer p { font-size: 13px; color: var(--text-muted); }
   <p>Refunds for App Store purchases are handled by Apple. Visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>, sign in with your Apple ID, and request a refund for your Drivio purchase.</p>
 
   <h3>How do I export or back up my trips?</h3>
-  <p>Pro subscribers can enable iCloud sync from in-app Settings &rarr; <strong>iCloud Backup</strong>. Your trip data is stored in your personal iCloud account. Individual journeys can be exported as posters from the Journey detail screen.</p>
+  <p>Pro subscribers can enable iCloud backup from in-app Settings &rarr; <strong>iCloud Backup</strong>. Your trip data is stored in your personal iCloud account. Individual journeys can be exported as posters from the Journey detail screen.</p>
 
   <h3>Will Drivio drain my battery?</h3>
-  <p>Drivio uses iOS's significant-location and motion APIs, which are highly battery-efficient. Typical impact is under 3% per day. The app does not run continuously in the background — iOS wakes it only when motion suggests a drive may be starting.</p>
+  <p>Battery use varies with drive duration, GPS reception, device condition, and Live Share use. Location recording uses power while you drive. Check Settings → Battery over several comparable days; Drivio does not promise a fixed daily battery percentage.</p>
 
   <h3>Does Drivio work without an internet connection?</h3>
-  <p>Yes. Trip detection and recording work fully offline. Internet is only required for iCloud sync (Pro) and Live Share (Pro).</p>
+  <p>Yes. Trip detection and recording work fully offline. Internet is only required for iCloud backup (Pro) and Live Share (Pro).</p>
 
   <h2>Privacy &amp; Data</h2>
-  <p>Drivio stores all your trip data on your device. We have no backend server and collect no data — no analytics SDKs, no ad trackers, no third-party services. See our <a href="privacy.html">Privacy Policy</a> for full details.</p>
+  <p>Drivio stores trip history on your device by default. Optional backup uses your iCloud Drive, and Live Share sends sharing data to Apple’s CloudKit. See our <a href="privacy.html">Privacy Policy</a> for full details.</p>
 
   <h2>Bug Reports &amp; Feature Requests</h2>
   <p>We're actively building Drivio and your feedback shapes what we ship next. Email <a href="mailto:support@drivio.to">support@drivio.to</a> with your idea or issue — we read everything.</p>

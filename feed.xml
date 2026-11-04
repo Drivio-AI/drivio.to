@@ -7,7 +7,7 @@
   <id>https://drivio.to/</id>
   <icon>https://drivio.to/favicon-32.png</icon>
   <logo>https://drivio.to/icon-512.png</logo>
-  <updated>2026-04-17T00:00:00Z</updated>
+  <updated>2026-11-03T00:00:00Z</updated>
   <author>
     <name>Drivio</name>
     <uri>https://drivio.to/</uri>
@@ -16,40 +16,40 @@
   <rights>© 2026 Drivio. All rights reserved.</rights>
 
   <entry>
-    <title>The Only iPhone Trip Tracker That Never Sees Your Data</title>
+    <title>How Drivio Stores Your Trips: Local History and Optional iCloud</title>
     <link href="https://drivio.to/blog/privacy-first-iphone-trip-tracker/"/>
     <id>https://drivio.to/blog/privacy-first-iphone-trip-tracker/</id>
-    <updated>2026-04-17T00:00:00Z</updated>
+    <updated>2026-11-03T00:00:00Z</updated>
     <published>2026-04-17T00:00:00Z</published>
     <category term="Privacy"/>
-    <summary>Most mileage trackers upload every trip to their servers the moment you finish driving. Drivio doesn't. Here's how a local-first iOS trip tracker actually works, and why it matters.</summary>
+    <summary>How Drivio stores trip history locally, backs up to iCloud Drive, and shares location through CloudKit when you choose.</summary>
   </entry>
 
   <entry>
-    <title>Why Your Mileage Tracker Shouldn't Need a Login or Email</title>
+    <title>Why Your Mileage Tracker Shouldn&#x27;t Need a Login or Email</title>
     <link href="https://drivio.to/blog/mileage-tracker-without-login/"/>
     <id>https://drivio.to/blog/mileage-tracker-without-login/</id>
-    <updated>2026-04-17T00:00:00Z</updated>
+    <updated>2026-11-03T00:00:00Z</updated>
     <published>2026-04-17T00:00:00Z</published>
     <category term="Privacy"/>
-    <summary>Most mileage trackers ask for your email before they'll track a single drive. Here's why that's a weird default, and how a trip tracker can work without any account at all.</summary>
+    <summary>Most mileage trackers ask for your email before they&#x27;ll track a single drive. Here&#x27;s why that&#x27;s a weird default, what your email actually enables, and how a trip tracker can work without any account at all.</summary>
   </entry>
 
   <entry>
     <title>Stop Uploading Your Location: A Local-First Approach to Trip Tracking</title>
     <link href="https://drivio.to/blog/stop-uploading-your-location/"/>
     <id>https://drivio.to/blog/stop-uploading-your-location/</id>
-    <updated>2026-04-17T00:00:00Z</updated>
+    <updated>2026-11-03T00:00:00Z</updated>
     <published>2026-04-17T00:00:00Z</published>
     <category term="Privacy"/>
-    <summary>The default architecture of almost every location app is: phone streams coordinates up, server stores them forever. Here's why local-first is the better pattern for trip tracking.</summary>
+    <summary>The default architecture of almost every location app is: phone streams coordinates up, server stores them forever. Here&#x27;s why local-first is the better pattern for trip tracking — and what it takes to build it.</summary>
   </entry>
 
   <entry>
     <title>How to Choose a Mileage Tracker That Respects Your Privacy</title>
     <link href="https://drivio.to/blog/choose-private-mileage-tracker/"/>
     <id>https://drivio.to/blog/choose-private-mileage-tracker/</id>
-    <updated>2026-04-17T00:00:00Z</updated>
+    <updated>2026-11-03T00:00:00Z</updated>
     <published>2026-04-17T00:00:00Z</published>
     <category term="Privacy"/>
     <summary>A practical checklist for evaluating the privacy posture of any iPhone mileage tracker — the questions to ask, the red flags to watch for, and the App Store labels that actually mean something.</summary>
@@ -69,30 +69,30 @@
     <title>Drivio vs MileIQ vs Stride: A Privacy-First Comparison</title>
     <link href="https://drivio.to/blog/drivio-vs-mileiq-vs-stride/"/>
     <id>https://drivio.to/blog/drivio-vs-mileiq-vs-stride/</id>
-    <updated>2026-04-17T00:00:00Z</updated>
+    <updated>2026-11-03T00:00:00Z</updated>
     <published>2026-04-17T00:00:00Z</published>
     <category term="Privacy"/>
-    <summary>Three iOS trip trackers, three very different privacy postures. How Drivio, MileIQ, and Stride compare on data architecture, account requirements, and what they're actually built for.</summary>
+    <summary>Three iOS trip trackers, three very different privacy postures. How Drivio, MileIQ, and Stride compare on data architecture, account requirements, and what they&#x27;re actually built for.</summary>
   </entry>
 
   <entry>
     <title>How to Track Every Drive Automatically on iPhone (No Buttons, No Timers)</title>
     <link href="https://drivio.to/blog/automatic-trip-tracking-iphone/"/>
     <id>https://drivio.to/blog/automatic-trip-tracking-iphone/</id>
-    <updated>2026-04-17T00:00:00Z</updated>
+    <updated>2026-11-03T00:00:00Z</updated>
     <published>2026-04-17T00:00:00Z</published>
     <category term="How it works"/>
-    <summary>Apps that ask you to tap Start for every drive are doing it wrong. Here's how iPhones can detect driving on their own using GPS, motion, Bluetooth, and CarPlay.</summary>
+    <summary>Apps that ask you to tap Start for every drive are doing it wrong. Here&#x27;s how iPhones can detect driving on their own using GPS, motion, Bluetooth, and CarPlay — and what good automatic trip tracking actually looks like.</summary>
   </entry>
 
   <entry>
-    <title>Why iPhones Can Detect Driving Without Killing Your Battery</title>
+    <title>iPhone Trip Tracking and Battery Life: What to Expect</title>
     <link href="https://drivio.to/blog/iphone-trip-tracking-battery-life/"/>
     <id>https://drivio.to/blog/iphone-trip-tracking-battery-life/</id>
-    <updated>2026-04-17T00:00:00Z</updated>
+    <updated>2026-11-03T00:00:00Z</updated>
     <published>2026-04-17T00:00:00Z</published>
     <category term="How it works"/>
-    <summary>Background location tracking has a bad battery reputation — for good reason. But a well-built iPhone trip tracker can run 24/7 for under 3% of battery per day. Here's how the iOS stack makes that possible.</summary>
+    <summary>Learn what affects an iPhone trip tracker’s battery use, how background location works, and how to check battery consumption on your own drives.</summary>
   </entry>
 
   <entry>
@@ -119,10 +119,10 @@
     <title>How to Build a Daily Commute Log Without Lifting a Finger</title>
     <link href="https://drivio.to/blog/daily-commute-log-iphone/"/>
     <id>https://drivio.to/blog/daily-commute-log-iphone/</id>
-    <updated>2026-04-17T00:00:00Z</updated>
+    <updated>2026-11-03T00:00:00Z</updated>
     <published>2026-04-17T00:00:00Z</published>
     <category term="Commute"/>
-    <summary>A daily commute log used to be something you kept in a spiral notebook in the glovebox. Here's how to build an effortless one on your iPhone — the kind that tracks itself and shows you patterns you didn't notice.</summary>
+    <summary>A daily commute log used to be something you kept in a spiral notebook in the glovebox. Here&#x27;s how to build an effortless one on your iPhone — the kind that tracks itself and shows you patterns you didn&#x27;t notice.</summary>
   </entry>
 
   <entry>
@@ -139,10 +139,10 @@
     <title>The Best Free Way to Track Every Drive on Your iPhone</title>
     <link href="https://drivio.to/blog/free-iphone-trip-tracker/"/>
     <id>https://drivio.to/blog/free-iphone-trip-tracker/</id>
-    <updated>2026-04-17T00:00:00Z</updated>
+    <updated>2026-11-03T00:00:00Z</updated>
     <published>2026-04-17T00:00:00Z</published>
     <category term="Commute"/>
-    <summary>Most free mileage trackers aren't actually free — they're capped, ad-supported, or data-monetized. Here's what genuinely free iPhone trip tracking looks like, and when upgrading is actually worth it.</summary>
+    <summary>Most free mileage trackers aren&#x27;t actually free — they&#x27;re capped, ad-supported, or data-monetized. Here&#x27;s what genuinely free iPhone trip tracking looks like, and when upgrading is actually worth it.</summary>
   </entry>
 
   <entry>
@@ -189,30 +189,30 @@
     <title>How to Share Your Live Location With Family Only While Driving</title>
     <link href="https://drivio.to/blog/share-live-location-family-while-driving/"/>
     <id>https://drivio.to/blog/share-live-location-family-while-driving/</id>
-    <updated>2026-04-17T00:00:00Z</updated>
+    <updated>2026-11-03T00:00:00Z</updated>
     <published>2026-04-17T00:00:00Z</published>
     <category term="Live Share"/>
-    <summary>Find My shares your location 24/7. Most people don't actually want that. Here's how to share only when you're on the road — and only with the people you choose.</summary>
+    <summary>Learn how Drivio Live Share uses public links and private invitations, when sessions end, and how to stop updates or delete a share.</summary>
   </entry>
 
   <entry>
     <title>Like Find My, But Just for the Drive: A Better Way to Share ETA</title>
     <link href="https://drivio.to/blog/share-eta-while-driving/"/>
     <id>https://drivio.to/blog/share-eta-while-driving/</id>
-    <updated>2026-04-17T00:00:00Z</updated>
+    <updated>2026-11-03T00:00:00Z</updated>
     <published>2026-04-17T00:00:00Z</published>
     <category term="Live Share"/>
-    <summary>Texting "where are you?" is a failed ETA experience. Sharing your Find My location 24/7 is overkill. There's a middle path — share the drive itself, live, only while you're on the road.</summary>
+    <summary>Texting &#x27;where are you?&#x27; is a failed ETA experience. Sharing your Find My location 24/7 is overkill. There&#x27;s a middle path — share the drive itself, live, with a sharing lifetime you choose.</summary>
   </entry>
 
   <entry>
     <title>Setting Up Safe Driving Check-Ins Between Parents and Teen Drivers</title>
     <link href="https://drivio.to/blog/teen-driver-check-ins/"/>
     <id>https://drivio.to/blog/teen-driver-check-ins/</id>
-    <updated>2026-04-17T00:00:00Z</updated>
+    <updated>2026-11-03T00:00:00Z</updated>
     <published>2026-04-17T00:00:00Z</published>
     <category term="Live Share"/>
-    <summary>Your teen just got their license. You want to know they're safe; they don't want 24/7 surveillance. Here's how to set up per-trip driving check-ins that balance parental peace of mind with a teen's need for autonomy.</summary>
+    <summary>Your teen just got their license. You want to know they&#x27;re safe; they don&#x27;t want 24/7 surveillance. Here&#x27;s how to set up per-trip driving check-ins that balance parental peace of mind with a teen&#x27;s need for autonomy.</summary>
   </entry>
 
 </feed>

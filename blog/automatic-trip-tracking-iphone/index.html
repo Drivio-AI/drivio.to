@@ -33,6 +33,7 @@
   "description": "How iPhones detect driving on their own using GPS, motion, Bluetooth, and CarPlay — and what good automatic trip tracking actually looks like.",
   "image": "https://drivio.to/og-image.png",
   "datePublished": "2026-04-17",
+  "dateModified": "2026-11-03",
   "author": { "@type": "Organization", "name": "Drivio" },
   "publisher": {
     "@type": "Organization",
@@ -195,7 +196,7 @@ footer p { font-size: 13px; color: var(--text-muted); }
 
   <div class="article-meta">
     <span class="category">How it works</span>
-    <span>April 17, 2026</span>
+    <span>April 17, 2026 · Updated November 3, 2026</span>
     <span>5 min read</span>
   </div>
 
@@ -252,7 +253,7 @@ footer p { font-size: 13px; color: var(--text-muted); }
 
   <h2>The Battery Question</h2>
 
-  <p>The fear with any always-on location feature is that it'll destroy your battery. The reality, if the app is built correctly, is that background trip detection should cost under 3% of battery per day — usually much less. The trick is that the app <em>is not running continuously</em>. It's dormant until iOS wakes it up for a significant-change event or a Bluetooth connection. Then it runs for a few seconds, confirms whether a trip is starting, and goes back to sleep.</p>
+  <p>Battery use varies with drive duration, GPS reception, device condition, and Live Share use. Location recording uses power while you drive. Check Settings → Battery over several comparable days; Drivio does not promise a fixed daily battery percentage.</p>
 
   <p>Apps that chew battery for background tracking are almost always polling GPS directly on a timer. That's the wrong approach on iOS — and frankly, it's why so many trip trackers have bad reputations.</p>
 
@@ -263,20 +264,20 @@ footer p { font-size: 13px; color: var(--text-muted); }
   <ol>
     <li><strong>Requires "Always Allow" location permission.</strong> Without it, the app can't wake up in the background, and automatic detection doesn't work. This is not a red flag — it's a requirement of the iOS location model.</li>
     <li><strong>Requires Motion &amp; Fitness access.</strong> Same reason. This is how the app reads activity classifications.</li>
-    <li><strong>Doesn't drain your battery.</strong> Check reviews for "battery drain" complaints. A well-built tracker should be under 3% per day.</li>
+    <li><strong>Doesn't drain your battery.</strong> Check reviews for "battery drain" complaints. Compare battery use across similar driving days on your own device.</li>
     <li><strong>Works on short trips.</strong> Some trackers miss anything under a mile or two. Your commute deserves to be logged.</li>
     <li><strong>Handles stops gracefully.</strong> The gas station stop shouldn't split your road trip into fragments.</li>
   </ol>
 
   <h2>How Drivio Does It</h2>
 
-  <p>We use all four signals — motion, significant-change location, Bluetooth, and CarPlay — fused together. No GPS polling on a timer. No manual start/stop. The app is designed to be invisible: you drive, you come back, your trip is already logged. Everything stays on your device — <a href="../privacy-first-iphone-trip-tracker/">we have no backend server</a>.</p>
+  <p>We use all four signals — motion, significant-change location, Bluetooth, and CarPlay — fused together. No GPS polling on a timer. No manual start/stop. The app is designed to be invisible: you drive, you come back, your trip is already logged. Trip history is local by default; <a href="../privacy-first-iphone-trip-tracker/">optional backup and sharing use Apple’s cloud services</a>.</p>
 
   <p>If that sounds like what you've been missing from your current tracker, give Drivio a try.</p>
 
   <div class="cta-box">
     <h3>Ready to stop tapping Start?</h3>
-    <p>Drivio records every drive automatically — no buttons, no timers, no data leaving your device.</p>
+    <p>Drivio records every drive automatically — no buttons, no timers, local trip history and optional iCloud features.</p>
     <a href="../../#download" class="cta-btn">Learn more about Drivio →</a>
   </div>
 </article>
